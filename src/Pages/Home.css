@@ -1,0 +1,258 @@
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  height: auto;
+  margin-top: 80px;
+}
+
+.home-container {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  
+}
+
+/* Hero section */
+.hero {
+  background-color: #2563eb;
+  color : #fff;
+  height: auto;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.cta-button {
+  background-color: #ffffff;
+  color: #2563eb;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #2563eb;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #e5e7eb;
+  border: 1.5px solid black;
+}
+
+/* Services section */
+.services {
+  padding: 3rem 1rem;
+}
+
+.services-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: black;
+}
+
+.services-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.service-card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: transform 0.3s;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+}
+
+.service-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.service-icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.service-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.service-description {
+  color: #4b5563;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.service-details {
+  color: #4b5563;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.service-card.active .service-details {
+  max-height: 1000px;
+}
+
+.chevron-icon {
+  display: block;
+  text-align: center;
+  font-size: 1rem;
+  color: #2563eb;
+  transition: transform 0.3s;
+}
+
+.chevron-icon.active {
+  transform: rotate(180deg);
+}
+
+.more-buttondiv {
+  text-align: center;
+}
+
+.more-button {
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* About section */
+.about {
+  background-color: #e5e7eb;
+  padding: 3rem 1rem;
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-text {
+  margin-bottom: 2rem;
+}
+
+.learn-more-button {
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+  margin-top: 1.5rem;
+}
+
+.learn-more-button:hover {
+  background-color: #1d4ed8;
+}
+
+.team-image {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-grid {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .about-text {
+    width: 50%;
+    margin-bottom: 0;
+  }
+
+  .about-image {
+    width: 50%;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

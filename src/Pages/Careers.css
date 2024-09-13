@@ -1,0 +1,177 @@
+.careers-page {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.careers-page .hero {
+    background-color: #2563eb;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.careers-page .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.careers-page .hero h1 {
+    color: #ffffff;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.careers-page .hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: white;
+}
+
+.careers-page .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.careers-page h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+}
+
+.careers-page .job-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.careers-page .job-category {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.careers-page .job-category:hover {
+    transform: translateY(-5px);
+}
+
+.careers-page .job-category-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    background-color: #e0f2fe;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+.careers-page .application-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.careers-page .open-form-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.careers-page .open-form-button:hover {
+    background-color: #2563eb;
+}
+
+.careers-page .form-wrapper {
+    padding: 1.5rem;
+}
+
+.careers-page .application-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.careers-page .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.careers-page .form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.careers-page .form-group input {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+}
+
+.careers-page .submit-button {
+    padding: 0.75rem 1rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.careers-page .submit-button:hover {
+    background-color: #2563eb;
+}
+
+.careers-page .email-resume-section {
+    margin-top: 3rem;
+}
+
+.careers-page .email-resume-content {
+    background-color: #e0f2fe;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.careers-page .email-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.careers-page .email-button:hover {
+    background-color: #2563eb;
+}
+
+@media (max-width: 768px) {
+    .careers-page .hero h1 {
+        font-size: 2rem;
+    }
+
+    .careers-page .hero p {
+        font-size: 1rem;
+    }
+
+    .careers-page h2 {
+        font-size: 1.5rem;
+    }
+
+    .careers-page .job-categories-grid {
+        grid-template-columns: 1fr;
+    }
+}
