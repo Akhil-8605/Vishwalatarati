@@ -11,7 +11,6 @@ import {
   MessageSquare,
   ArrowRight,
   CheckCircle,
-  Sun,
   Zap,
   Calendar,
   User,
@@ -26,7 +25,12 @@ import {
   Code,
   MessageCircle,
   Rocket,
+  HeadphonesIcon,
+  Video,
+  FileText,
+  Sparkles,
 } from "lucide-react"
+import "./ContactUs.css"
 
 const ContactUs = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -43,6 +47,7 @@ const ContactUs = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [activeTab, setActiveTab] = useState(0)
 
   useEffect(() => {
     setIsLoaded(true)
@@ -81,40 +86,53 @@ const ContactUs = () => {
     }, 2000)
   }
 
-  const contactInfo = [
+  const contactMethods = [
     {
-      icon: <Mail size={30} />,
+      icon: <Mail size={32} />,
       title: "Email Us",
-      details: "info@vishwalatarati.com",
-      subDetails: "support@vishwalatarati.com",
-      color: "from-blue-500 to-blue-600",
-      description: "Send us an email anytime",
+      subtitle: "Send us a message",
+      primary: "vishwalarati@gmail.com",
+      secondary: "vishwalarati@gmail.com",
+      color: { from: "#3b82f6", to: "#2563eb" }, // blue-500 to blue-600
+      bgColor: "#eff6ff", // blue-50
+      description: "Get a response within 24 hours",
+      action: "Send Email",
     },
     {
-      icon: <Phone size={30} />,
+      icon: <Phone size={32} />,
       title: "Call Us",
-      details: "+91 98765 43210",
-      subDetails: "+91 87654 32109",
-      color: "from-emerald-500 to-emerald-600",
-      description: "Speak with our experts",
+      subtitle: "Speak with our experts",
+      primary: "+91 7620131908",
+      secondary: "+91 7620131908",
+      color: { from: "#10b981", to: "#059669" }, // emerald-500 to emerald-600
+      bgColor: "#ecfdf5", // emerald-50
+      description: "Available Mon-Fri, 9AM-6PM",
+      action: "Call Now",
     },
+    // {
+    //   icon: <Video size={32} />,
+    //   title: "Video Call",
+    //   subtitle: "Schedule a meeting",
+    //   primary: "Book a consultation",
+    //   secondary: "Free 30-min session",
+    //   color: { from: "#8b5cf6", to: "#7c3aed" }, // purple-500 to purple-600
+    //   bgColor: "#f5f3ff", // purple-50
+    //   description: "Face-to-face discussion",
+    //   action: "Schedule Call",
+    // },
     {
-      icon: <MapPin size={30} />,
-      title: "Visit Us",
-      details: "123 Tech Park, Innovation Hub",
-      subDetails: "Bangalore, Karnataka 560001",
-      color: "from-purple-500 to-purple-600",
-      description: "Come to our office",
+      icon: <MessageCircle size={32} />,
+      title: "Live Chat",
+      subtitle: "Instant support",
+      primary: "Chat with our team",
+      secondary: "Real-time assistance",
+      color: { from: "#f97316", to: "#ea580c" }, // orange-500 to orange-600
+      bgColor: "#fff7ed", // orange-50
+      description: "Available during business hours",
+      action: "Start Chat",
     },
-    {
-      icon: <Clock size={30} />,
-      title: "Business Hours",
-      details: "Mon - Fri: 9:00 AM - 6:00 PM",
-      subDetails: "Sat: 10:00 AM - 4:00 PM",
-      color: "from-orange-500 to-orange-600",
-      description: "We're here to help",
-    },
-  ]
+  ];
+
 
   const services = [
     "Software Development",
@@ -128,11 +146,11 @@ const ContactUs = () => {
   ]
 
   const budgetRanges = [
-    "Under $10,000",
-    "$10,000 - $25,000",
-    "$25,000 - $50,000",
-    "$50,000 - $100,000",
-    "Above $100,000",
+    "Under ₹10,000",
+    "₹10,000 - $25,000",
+    "₹25,000 - ₹50,000",
+    "₹50,000 - ₹100,000",
+    "Above ₹100,000",
     "Let's Discuss",
   ]
 
@@ -143,54 +161,68 @@ const ContactUs = () => {
       question: "How long does a typical project take?",
       answer:
         "Project timelines vary based on complexity and scope. Simple websites take 2-4 weeks, while complex applications can take 3-6 months. We provide detailed timelines during our initial consultation.",
+      category: "Timeline",
     },
     {
       question: "Do you provide ongoing support and maintenance?",
       answer:
         "Yes, we offer comprehensive support and maintenance packages to ensure your solutions continue to perform optimally. Our support includes bug fixes, updates, and technical assistance.",
+      category: "Support",
     },
     {
       question: "What technologies do you work with?",
       answer:
         "We work with a wide range of modern technologies including React, Node.js, Python, Java, Flutter, React Native, AWS, Azure, and many more. We choose the best technology stack for each project.",
+      category: "Technology",
     },
     {
       question: "Can you work with our existing team?",
       answer:
         "We excel at collaborating with existing teams and can seamlessly integrate with your development processes, tools, and methodologies.",
+      category: "Collaboration",
     },
     {
       question: "What is your pricing model?",
       answer:
         "We offer flexible pricing models including fixed-price projects, hourly rates, and dedicated team arrangements. We'll work with you to find the best approach for your budget and requirements.",
+      category: "Pricing",
     },
     {
       question: "Do you sign NDAs?",
       answer:
         "Absolutely. We understand the importance of confidentiality and are happy to sign NDAs before discussing your project details. Your intellectual property and business information are completely secure with us.",
+      category: "Security",
     },
   ]
 
   const whyChooseUs = [
     {
-      icon: <Award size={24} />,
+      icon: <Award size={28} />,
       title: "Proven Expertise",
-      description: "5+ years of experience with 500+ successful projects",
+      description: "5+ years of experience with 500+ successful projects across various industries",
+      stats: "500+ Projects",
+      color: "from-blue-500 to-blue-600",
     },
     {
-      icon: <Users size={24} />,
+      icon: <Users size={28} />,
       title: "Expert Team",
-      description: "50+ skilled professionals across all technologies",
+      description: "50+ skilled professionals with expertise in cutting-edge technologies",
+      stats: "50+ Experts",
+      color: "from-emerald-500 to-emerald-600",
     },
     {
-      icon: <Shield size={24} />,
+      icon: <Shield size={28} />,
       title: "Quality Assurance",
-      description: "Rigorous testing and 98% client satisfaction rate",
+      description: "Rigorous testing processes ensuring 98% client satisfaction rate",
+      stats: "98% Satisfaction",
+      color: "from-purple-500 to-purple-600",
     },
     {
-      icon: <Clock size={24} />,
+      icon: <Clock size={28} />,
       title: "On-Time Delivery",
-      description: "Agile methodology ensuring timely project completion",
+      description: "Agile methodology ensuring timely project completion and delivery",
+      stats: "100% On-Time",
+      color: "from-orange-500 to-orange-600",
     },
   ]
 
@@ -198,48 +230,65 @@ const ContactUs = () => {
     {
       step: "01",
       title: "Initial Consultation",
-      description: "We discuss your requirements and project goals",
-      icon: <MessageCircle size={24} />,
+      description: "We discuss your requirements, goals, and project scope in detail",
+      icon: <MessageCircle size={28} />,
+      color: { from: "#3b82f6", to: "#2563eb" }, // blue-500 to blue-600
+      duration: "30-60 mins",
     },
     {
       step: "02",
       title: "Proposal & Planning",
-      description: "Detailed proposal with timeline and cost estimation",
-      icon: <Briefcase size={24} />,
+      description: "Detailed proposal with timeline, cost estimation, and project roadmap",
+      icon: <FileText size={28} />,
+      color: { from: "#10b981", to: "#059669" }, // emerald-500 to emerald-600
+      duration: "2-3 days",
     },
     {
       step: "03",
       title: "Development & Updates",
-      description: "Regular progress updates and milestone deliveries",
-      icon: <Code size={24} />,
+      description: "Regular progress updates and milestone deliveries with your feedback",
+      icon: <Code size={28} />,
+      color: { from: "#8b5cf6", to: "#7c3aed" }, // purple-500 to purple-600
+      duration: "Project timeline",
     },
     {
       step: "04",
       title: "Launch & Support",
-      description: "Project launch with ongoing support and maintenance",
-      icon: <Rocket size={24} />,
+      description: "Project launch with comprehensive testing and ongoing support",
+      icon: <Rocket size={28} />,
+      color: { from: "#f97316", to: "#ea580c" }, // orange-500 to orange-600
+      duration: "Ongoing",
     },
+  ];
+
+
+  const officeInfo = {
+    address: "783, Swami Vivekananda Nagar, Near Solapur Airport, ",
+    city: "Solapur-413002, Maharashtra.",
+    country: "India",
+    hours: "Mon - Fri: 9:00 AM - 6:00 PM",
+    weekend: "Sat: 10:00 AM - 4:00 PM",
+    phone: "+91 98765 43210",
+    email: "vishwalarati@gmail.com",
+  }
+
+  const tabs = [
+    { label: "General", icon: <MessageSquare size={18} /> },
+    { label: "Technical", icon: <Code size={18} /> },
+    { label: "Business", icon: <Briefcase size={18} /> },
   ]
 
   return (
     <div className="contact-page">
-      {/* Static Particles Background */}
-      <div className="particles">
-        {[...Array(60)].map((_, i) => (
+      {/* Enhanced Particles Background */}
+      <div className="contact-particles">
+        {[...Array(100)].map((_, i) => (
           <div
             key={i}
-            className={`particle ${i % 5 === 0
-                ? "particle-blue"
-                : i % 5 === 1
-                  ? "particle-purple"
-                  : i % 5 === 2
-                    ? "particle-emerald"
-                    : i % 5 === 3
-                      ? "particle-orange"
-                      : "particle-pink"
-              }`}
+            className={`contact-particle contact-particle-${(i % 4) + 1}`}
             style={{
               left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 20}s`,
               animationDuration: `${15 + Math.random() * 25}s`,
             }}
@@ -274,7 +323,7 @@ const ContactUs = () => {
         </motion.div>
       </nav>
 
-      {/* Professional Hero Section */}
+      {/* Enhanced Hero Section */}
       <section className="contact-hero">
         <div className="hero-background">
           <div className="hero-gradient"></div>
@@ -288,7 +337,7 @@ const ContactUs = () => {
             transition={{ duration: 1, delay: 0.2 }}
           >
             <div className="hero-badge">
-              <Sun size={16} />
+              <Sparkles size={16} />
               <span>Get In Touch</span>
             </div>
             <h1>Let's Build Something Amazing Together</h1>
@@ -298,24 +347,38 @@ const ContactUs = () => {
             </p>
             <div className="hero-features">
               <div className="hero-feature">
-                <CheckCircle size={16} />
+                <CheckCircle size={18} />
                 <span>Free Consultation</span>
               </div>
               <div className="hero-feature">
-                <CheckCircle size={16} />
+                <CheckCircle size={18} />
                 <span>24/7 Support</span>
               </div>
               <div className="hero-feature">
-                <CheckCircle size={16} />
+                <CheckCircle size={18} />
                 <span>Custom Solutions</span>
               </div>
+              <div className="hero-feature">
+                <CheckCircle size={18} />
+                <span>Expert Team</span>
+              </div>
+            </div>
+            <div className="hero-cta">
+              <button className="btn-primary">
+                <span>Start Your Project</span>
+                <ArrowRight size={20} />
+              </button>
+              <button className="btn-secondary">
+                <Calendar size={20} />
+                <span>Schedule Consultation</span>
+              </button>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Info Section */}
-      <section className="contact-info-section">
+      {/* Enhanced Contact Methods Section */}
+      <section className="contact-methods-section">
         <div className="container">
           <motion.div
             className="section-header"
@@ -326,30 +389,37 @@ const ContactUs = () => {
           >
             <div className="section-badge">
               <Phone size={16} />
-              <span>Contact Information</span>
+              <span>Contact Methods</span>
             </div>
             <h2>Multiple Ways to Reach Us</h2>
             <p>Choose the most convenient way to get in touch with our team</p>
           </motion.div>
-          <div className="contact-info-grid">
-            {contactInfo.map((info, index) => (
+          <div className="contact-methods-grid">
+            {contactMethods.map((method, index) => (
               <motion.div
                 key={index}
-                className="contact-info-card"
+                className="contact-method-card"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
                 viewport={{ once: true }}
               >
-                <div className={`contact-icon bg-gradient-to-r ${info.color}`}>{info.icon}</div>
-                <h3>{info.title}</h3>
-                <p className="contact-description">{info.description}</p>
-                <p className="contact-detail">{info.details}</p>
-                <p className="contact-sub-detail">{info.subDetails}</p>
-                <div className="contact-action">
-                  <ArrowRight size={16} />
+                <div className={`method-icon`} style={{ background: `linear-gradient(to right, ${method.color.from}, ${method.color.to})`, }}>{method.icon}</div>
+                <div className="method-content">
+                  <h3>{method.title}</h3>
+                  <p className="method-subtitle">{method.subtitle}</p>
+                  <div className="method-details">
+                    <span className="primary-detail">{method.primary}</span>
+                    <span className="secondary-detail">{method.secondary}</span>
+                  </div>
+                  <p className="method-description">{method.description}</p>
+                  <button className="method-action">
+                    {method.action}
+                    <ArrowRight size={16} />
+                  </button>
                 </div>
+                <div className="method-glow"></div>
               </motion.div>
             ))}
           </div>
@@ -381,19 +451,23 @@ const ContactUs = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
+                whileHover={{ y: -8, scale: 1.03 }}
                 viewport={{ once: true }}
               >
-                <div className="why-choose-icon">{item.icon}</div>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
+                <div className={`choose-icon bg-gradient-to-r ${item.color}`}>{item.icon}</div>
+                <div className="choose-content">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <div className="choose-stats">{item.stats}</div>
+                </div>
+                <div className="choose-shine"></div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Form Section */}
+      {/* Enhanced Contact Form Section */}
       <section className="contact-form-section">
         <div className="container">
           <div className="contact-form-content">
@@ -416,19 +490,31 @@ const ContactUs = () => {
               <div className="form-benefits">
                 <div className="benefit">
                   <CheckCircle className="benefit-icon" />
-                  <span>Free project consultation</span>
+                  <div className="benefit-content">
+                    <h4>Free Consultation</h4>
+                    <p>Comprehensive project analysis</p>
+                  </div>
                 </div>
                 <div className="benefit">
                   <CheckCircle className="benefit-icon" />
-                  <span>Custom solution design</span>
+                  <div className="benefit-content">
+                    <h4>Custom Solution</h4>
+                    <p>Tailored to your specific needs</p>
+                  </div>
                 </div>
                 <div className="benefit">
                   <CheckCircle className="benefit-icon" />
-                  <span>Transparent pricing</span>
+                  <div className="benefit-content">
+                    <h4>Transparent Pricing</h4>
+                    <p>No hidden costs or surprises</p>
+                  </div>
                 </div>
                 <div className="benefit">
                   <CheckCircle className="benefit-icon" />
-                  <span>Dedicated project manager</span>
+                  <div className="benefit-content">
+                    <h4>Dedicated Support</h4>
+                    <p>Personal project manager assigned</p>
+                  </div>
                 </div>
               </div>
               <div className="contact-stats">
@@ -439,6 +525,10 @@ const ContactUs = () => {
                 <div className="contact-stat">
                   <span className="stat-number">98%</span>
                   <span className="stat-label">Client Satisfaction</span>
+                </div>
+                <div className="contact-stat">
+                  <span className="stat-number">500+</span>
+                  <span className="stat-label">Projects Delivered</span>
                 </div>
               </div>
             </motion.div>
@@ -648,9 +738,12 @@ const ContactUs = () => {
                 viewport={{ once: true }}
               >
                 <div className="process-number">{step.step}</div>
-                <div className="process-icon">{step.icon}</div>
+                <div className="process-icon" style={{
+                  background: `linear-gradient(to right, ${step.color.from}, ${step.color.to})`,
+                }}>{step.icon}</div>
                 <h3>{step.title}</h3>
                 <p>{step.description}</p>
+                <div className="process-duration">{step.duration}</div>
                 {index < processSteps.length - 1 && (
                   <div className="process-connector">
                     <ArrowRight size={20} />
@@ -662,7 +755,7 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Enhanced FAQ Section */}
       <section className="faq-section">
         <div className="container">
           <motion.div
@@ -679,29 +772,53 @@ const ContactUs = () => {
             <h2>Frequently Asked Questions</h2>
             <p>Quick answers to common questions about our services</p>
           </motion.div>
-          <div className="faq-grid">
-            {faqs.map((faq, index) => (
-              <motion.div
+          <div className="faq-tabs">
+            {tabs.map((tab, index) => (
+              <button
                 key={index}
-                className="faq-item"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                className={`faq-tab ${activeTab === index ? "active" : ""}`}
+                onClick={() => setActiveTab(index)}
               >
-                <div className="faq-icon">
-                  <MessageCircle size={20} />
-                </div>
-                <h3>{faq.question}</h3>
-                <p>{faq.answer}</p>
-              </motion.div>
+                {tab.icon}
+                {tab.label}
+              </button>
             ))}
+          </div>
+          <div className="faq-content">
+            <div className="faq-grid">
+              {faqs
+                .filter((faq) => {
+                  if (activeTab === 0) return ["Timeline", "Support"].includes(faq.category)
+                  if (activeTab === 1) return ["Technology", "Collaboration"].includes(faq.category)
+                  if (activeTab === 2) return ["Pricing", "Security"].includes(faq.category)
+                  return true
+                })
+                .map((faq, index) => (
+                  <motion.div
+                    key={index}
+                    className="faq-item"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="faq-icon">
+                      <MessageCircle size={20} />
+                    </div>
+                    <div className="faq-content-text">
+                      <h3>{faq.question}</h3>
+                      <p>{faq.answer}</p>
+                      <span className="faq-category">{faq.category}</span>
+                    </div>
+                  </motion.div>
+                ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="map-section">
+      {/* Enhanced Office Location Section */}
+      <section className="office-section">
         <div className="container">
           <motion.div
             className="section-header"
@@ -718,35 +835,48 @@ const ContactUs = () => {
             <p>Come meet our team for in-person consultations and collaboration</p>
           </motion.div>
           <motion.div
-            className="map-container"
+            className="office-container"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="map-content">
-              <div className="map-info">
-                <div className="map-details">
-                  <h3>Vishwalatarati Office</h3>
-                  <div className="address-details">
+            <div className="office-content">
+              <div className="office-info">
+                <div className="office-details">
+                  <h3>Vishwalatarati Headquarters</h3>
+                  <div className="office-address">
                     <div className="address-item">
-                      <MapPin size={18} />
-                      <span>
-                        123 Tech Park, Innovation Hub
-                        <br />
-                        Bangalore, Karnataka 560001
-                      </span>
+                      <MapPin size={20} />
+                      <div>
+                        <span className="address-line">{officeInfo.address}</span>
+                        <span className="address-line">{officeInfo.city}</span>
+                        <span className="address-line">{officeInfo.country}</span>
+                      </div>
                     </div>
                     <div className="address-item">
-                      <Phone size={18} />
-                      <span>+91 98765 43210</span>
+                      <Phone size={20} />
+                      <div>
+                        <span className="contact-detail">{officeInfo.phone}</span>
+                        <span className="contact-label">Main Office</span>
+                      </div>
                     </div>
                     <div className="address-item">
-                      <Clock size={18} />
-                      <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                      <Mail size={20} />
+                      <div>
+                        <span className="contact-detail">{officeInfo.email}</span>
+                        <span className="contact-label">General Inquiries</span>
+                      </div>
+                    </div>
+                    <div className="address-item">
+                      <Clock size={20} />
+                      <div>
+                        <span className="contact-detail">{officeInfo.hours}</span>
+                        <span className="contact-detail">{officeInfo.weekend}</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="map-actions">
+                  <div className="office-actions">
                     <button className="btn-primary">
                       Get Directions <ArrowRight size={16} />
                     </button>
@@ -757,11 +887,37 @@ const ContactUs = () => {
                   </div>
                 </div>
               </div>
-              <div className="map-placeholder">
-                <div className="map-visual">
-                  <MapPin size={80} />
-                  <h4>Interactive Map</h4>
-                  <p>Click to view our location on Google Maps</p>
+              <div className="office-visual">
+                <div className="office-map">
+                  {/* <div className="map-placeholder">
+                    <MapPin size={80} />
+                    <h4>Interactive Map</h4>
+                    <p>Click to view our location on Google Maps</p>
+                  </div> */}
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6347.782620562595!2d75.89363580869136!3d17.615655501259877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc5d757fb36becd%3A0xf76bfc7549cf790d!2sSwami%20Vivekanand%20Nagar%2C%20Solapur%2C%20Maharashtra%20413008!5e1!3m2!1sen!2sin!4v1726164927831!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    className="map-placeholder"
+                    style={{}}
+                    allowFullScreen=""
+                    loading="lazy"
+                    title="Google Map Location"
+                  />
+                </div>
+                <div className="office-features">
+                  <div className="office-feature">
+                    <HeadphonesIcon size={24} />
+                    <span>24/7 Support Available</span>
+                  </div>
+                  <div className="office-feature">
+                    <Users size={24} />
+                    <span>Meeting Rooms Available</span>
+                  </div>
+                  <div className="office-feature">
+                    <Shield size={24} />
+                    <span>Secure Environment</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -769,10 +925,11 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Enhanced CTA Section */}
       <section className="cta-section">
         <div className="cta-background">
           <div className="cta-pattern"></div>
+          <div className="cta-glow"></div>
         </div>
         <div className="container">
           <motion.div
@@ -782,11 +939,13 @@ const ContactUs = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2>Ready to Get Started?</h2>
-            <p>
-              Let's turn your ideas into reality. Contact us today for a free consultation and discover how we can help
-              transform your business.
-            </p>
+            <div className="cta-text">
+              <h2>Ready to Get Started?</h2>
+              <p>
+                Let's turn your ideas into reality. Contact us today for a free consultation and discover how we can
+                help transform your business.
+              </p>
+            </div>
             <div className="cta-buttons">
               <button className="btn-primary">
                 <Phone size={20} />
@@ -825,9 +984,9 @@ const ContactUs = () => {
             <div className="footer-main">
               <div className="footer-brand">
                 <div className="footer-logo">
-                  <div className="footer-logo-icon">
-                    <Zap size={28} />
-                  </div>
+                  {/* <div className="footer-logo-icon">
+                                        <Zap size={28} />
+                                    </div> */}
                   <h3>Vishwalatarati</h3>
                 </div>
                 <p>
@@ -837,31 +996,31 @@ const ContactUs = () => {
                 <div className="footer-contact">
                   <div className="contact-item">
                     <Phone size={16} />
-                    <span>+91 98765 43210</span>
+                    <span>+91 7620131908</span>
                   </div>
                   <div className="contact-item">
                     <Mail size={16} />
-                    <span>info@vishwalatarati.com</span>
+                    <span>vishwalarati@gmail.com</span>
                   </div>
                   <div className="contact-item">
                     <MapPin size={16} />
-                    <span>Bangalore, Karnataka, India</span>
+                    <span>783, Swami Vivekananda Nagar, Near Solapur Airport, Solapur-413002, Maharashtra.</span>
                   </div>
                 </div>
-                <div className="social-links">
-                  <a href="#" className="social-link">
-                    <span>LinkedIn</span>
-                  </a>
-                  <a href="#" className="social-link">
-                    <span>Twitter</span>
-                  </a>
-                  <a href="#" className="social-link">
-                    <span>Facebook</span>
-                  </a>
-                  <a href="#" className="social-link">
-                    <span>Instagram</span>
-                  </a>
-                </div>
+                {/* <div className="social-links">
+                                    <a href="#" className="social-link">
+                                        <span>LinkedIn</span>
+                                    </a>
+                                    <a href="#" className="social-link">
+                                        <span>Twitter</span>
+                                    </a>
+                                    <a href="#" className="social-link">
+                                        <span>Facebook</span>
+                                    </a>
+                                    <a href="#" className="social-link">
+                                        <span>Instagram</span>
+                                    </a>
+                                </div> */}
               </div>
               <div className="footer-links">
                 <div className="footer-section">
@@ -901,23 +1060,12 @@ const ContactUs = () => {
                     <li>Webinars</li>
                   </ul>
                 </div>
-                <div className="footer-section">
-                  <h4>Industries</h4>
-                  <ul>
-                    <li>Healthcare</li>
-                    <li>Finance</li>
-                    <li>E-commerce</li>
-                    <li>Education</li>
-                    <li>Manufacturing</li>
-                    <li>Startups</li>
-                  </ul>
-                </div>
               </div>
             </div>
           </div>
           <div className="footer-bottom">
             <div className="footer-bottom-left">
-              <p>&copy; 2024 Vishwalatarati. All rights reserved.</p>
+              <p>&copy; 2025 Vishwalatarati. All rights reserved.</p>
             </div>
             <div className="footer-bottom-links">
               <a href="#">Privacy Policy</a>

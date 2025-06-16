@@ -24,39 +24,40 @@ const AboutUs = () => {
             icon: <Lightbulb size={40} />,
             title: "Innovation",
             description: "We constantly push boundaries and embrace cutting-edge technologies to deliver exceptional solutions that drive business transformation.",
-            color: "from-yellow-400 to-orange-500",
+            color: { from: "#facc15", to: "#f97316" }, // yellow-400 to orange-500
         },
         {
             icon: <Users size={40} />,
             title: "Collaboration",
             description: "We believe in the power of teamwork and foster strong partnerships with our clients and team members to achieve extraordinary results.",
-            color: "from-blue-400 to-indigo-500",
+            color: { from: "#60a5fa", to: "#6366f1" }, // blue-400 to indigo-500
         },
         {
             icon: <Award size={40} />,
             title: "Excellence",
             description: "We maintain the highest standards in everything we do, ensuring quality and reliability in every project we undertake.",
-            color: "from-purple-400 to-pink-500",
+            color: { from: "#c084fc", to: "#ec4899" }, // purple-400 to pink-500
         },
         {
             icon: <Shield size={40} />,
             title: "Integrity",
             description: "We conduct business with honesty, transparency, and ethical practices in all our interactions and deliverables.",
-            color: "from-emerald-400 to-teal-500",
+            color: { from: "#34d399", to: "#14b8a6" }, // emerald-400 to teal-500
         },
         {
             icon: <Rocket size={40} />,
             title: "Growth",
             description: "We are committed to continuous learning and improvement, helping our clients and team members reach new heights.",
-            color: "from-rose-400 to-pink-500",
+            color: { from: "#fb7185", to: "#ec4899" }, // rose-400 to pink-500
         },
         {
             icon: <Heart size={40} />,
             title: "Passion",
             description: "We bring enthusiasm and dedication to every project, creating solutions that truly make a difference in people's lives.",
-            color: "from-pink-400 to-rose-500",
+            color: { from: "#f472b6", to: "#f43f5e" }, // pink-400 to rose-500
         },
-    ]
+    ];
+
 
     const milestones = [
         {
@@ -64,44 +65,44 @@ const AboutUs = () => {
             title: "Company Founded",
             description: "Vishwalatarati was established with a vision to transform digital experiences and empower businesses through technology.",
             icon: <Building size={30} />,
-            color: "from-blue-500 to-purple-600",
+            color: { from: "#3b82f6", to: "#9333ea" }, // blue-500 to purple-600
         },
         {
             year: "2020",
             title: "First Major Client",
             description: "Successfully delivered our first enterprise-level project, setting the foundation for growth and establishing our reputation.",
             icon: <Star size={30} />,
-            color: "from-emerald-500 to-teal-600",
+            color: { from: "#10b981", to: "#0d9488" }, // emerald-500 to teal-600
         },
         {
             year: "2021",
             title: "Team Expansion",
             description: "Grew our team to 25+ professionals across multiple domains and technologies, enhancing our service capabilities.",
             icon: <Users size={30} />,
-            color: "from-purple-500 to-pink-600",
+            color: { from: "#8b5cf6", to: "#db2777" }, // purple-500 to pink-600
         },
         {
             year: "2022",
             title: "International Reach",
             description: "Expanded our services globally, serving clients across different continents and establishing international partnerships.",
             icon: <Globe size={30} />,
-            color: "from-orange-500 to-red-600",
+            color: { from: "#f97316", to: "#dc2626" }, // orange-500 to red-600
         },
         {
             year: "2023",
             title: "Innovation Hub",
             description: "Established our R&D division focusing on emerging technologies, AI solutions, and next-generation digital platforms.",
             icon: <Lightbulb size={30} />,
-            color: "from-yellow-500 to-orange-600",
+            color: { from: "#eab308", to: "#f97316" }, // yellow-500 to orange-600
         },
         {
             year: "2024",
             title: "Industry Recognition",
             description: "Received multiple awards for excellence in software development, client satisfaction, and innovative solutions.",
             icon: <Award size={30} />,
-            color: "from-indigo-500 to-blue-600",
+            color: { from: "#6366f1", to: "#2563eb" }, // indigo-500 to blue-600
         },
-    ]
+    ];
 
     const team = [
         {
@@ -330,7 +331,7 @@ const AboutUs = () => {
                             viewport={{ once: true }}
                         >
                             <div className="overview-image-container">
-                                <img src="/placeholder.svg?height=500&width=600" alt="Our Company" />
+                                <img src="https://media.istockphoto.com/id/1144647692/photo/corporate-group-portrait-of-cheering-staff-members.jpg?s=612x612&w=0&k=20&c=hgDeW7sDrgX7hn6mBT5SmDNhcsZ14p5H6KolxRsb70k=" alt="Our Company" />
                                 <div className="image-overlay">
                                     <div className="overlay-content">
                                         <h3>5+ Years</h3>
@@ -471,7 +472,7 @@ const AboutUs = () => {
                                 whileHover={{ y: -10, scale: 1.02 }}
                                 viewport={{ once: true }}
                             >
-                                <div className={`value-icon bg-gradient-to-r ${value.color}`}>{value.icon}</div>
+                                <div className={`value-icon`} style={{ background: `linear-gradient(to right, ${value.color.from}, ${value.color.to})`, }}>{value.icon}</div>
                                 <h3>{value.title}</h3>
                                 <p>{value.description}</p>
                                 <div className="value-glow"></div>
@@ -551,7 +552,7 @@ const AboutUs = () => {
                                 viewport={{ once: true }}
                             >
                                 <div className="timeline-content">
-                                    <div className={`timeline-icon bg-gradient-to-r ${milestone.color}`}>{milestone.icon}</div>
+                                    <div className={`timeline-icon`} style={{ background: `linear-gradient(to right, ${milestone.color.from}, ${milestone.color.to})`, }}>{milestone.icon}</div>
                                     <div className="timeline-year">{milestone.year}</div>
                                     <h3>{milestone.title}</h3>
                                     <p>{milestone.description}</p>
@@ -628,7 +629,7 @@ const AboutUs = () => {
             </section> */}
 
             {/* Tabbed Content Section */}
-            <section className="tabbed-section">
+            {/* <section className="tabbed-section">
                 <div className="container">
                     <motion.div
                         className="section-header"
@@ -793,7 +794,7 @@ const AboutUs = () => {
                         )}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Why Choose Us */}
             <section className="why-choose-us">
@@ -836,24 +837,6 @@ const AboutUs = () => {
                                 <div className="choose-content">
                                     <h4>Cutting-edge Technology</h4>
                                     <p>We leverage the latest technologies and frameworks to build future-ready solutions</p>
-                                </div>
-                            </div>
-                            <div className="choose-item">
-                                <div className="choose-icon">
-                                    <Users size={24} />
-                                </div>
-                                <div className="choose-content">
-                                    <h4>Client-Centric Approach</h4>
-                                    <p>Your success is our priority, and we tailor our services to meet your unique needs</p>
-                                </div>
-                            </div>
-                            <div className="choose-item">
-                                <div className="choose-icon">
-                                    <Rocket size={24} />
-                                </div>
-                                <div className="choose-content">
-                                    <h4>Agile Methodology</h4>
-                                    <p>Fast, flexible, and efficient project delivery with continuous feedback loops</p>
                                 </div>
                             </div>
                             <div className="choose-item">
@@ -937,24 +920,43 @@ const AboutUs = () => {
                         <div className="footer-main">
                             <div className="footer-brand">
                                 <div className="footer-logo">
-                                    <Zap size={24} />
+                                    {/* <div className="footer-logo-icon">
+                                        <Zap size={28} />
+                                    </div> */}
                                     <h3>Vishwalatarati</h3>
                                 </div>
-                                <p>Driving innovation through digital excellence and transforming businesses worldwide.</p>
+                                <p>
+                                    Empowering businesses through innovative digital solutions and cutting-edge technology. Your success
+                                    is our mission.
+                                </p>
                                 <div className="footer-contact">
                                     <div className="contact-item">
                                         <Phone size={16} />
-                                        <span>+91 98765 43210</span>
+                                        <span>+91 7620131908</span>
                                     </div>
                                     <div className="contact-item">
                                         <Mail size={16} />
-                                        <span>info@vishwalatarati.com</span>
+                                        <span>vishwalarati@gmail.com</span>
                                     </div>
                                     <div className="contact-item">
                                         <MapPin size={16} />
-                                        <span>Bangalore, Karnataka, India</span>
+                                        <span>783, Swami Vivekananda Nagar, Near Solapur Airport, Solapur-413002, Maharashtra.</span>
                                     </div>
                                 </div>
+                                {/* <div className="social-links">
+                                    <a href="#" className="social-link">
+                                        <span>LinkedIn</span>
+                                    </a>
+                                    <a href="#" className="social-link">
+                                        <span>Twitter</span>
+                                    </a>
+                                    <a href="#" className="social-link">
+                                        <span>Facebook</span>
+                                    </a>
+                                    <a href="#" className="social-link">
+                                        <span>Instagram</span>
+                                    </a>
+                                </div> */}
                             </div>
                             <div className="footer-links">
                                 <div className="footer-section">
@@ -998,11 +1000,14 @@ const AboutUs = () => {
                         </div>
                     </div>
                     <div className="footer-bottom">
-                        <p>&copy; 2024 Vishwalatarati. All rights reserved.</p>
+                        <div className="footer-bottom-left">
+                            <p>&copy; 2025 Vishwalatarati. All rights reserved.</p>
+                        </div>
                         <div className="footer-bottom-links">
                             <a href="#">Privacy Policy</a>
                             <a href="#">Terms of Service</a>
                             <a href="#">Cookie Policy</a>
+                            <a href="#">Sitemap</a>
                         </div>
                     </div>
                 </div>

@@ -203,7 +203,8 @@
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  min-height: 100vh;
+  padding: 2rem;
 }
 
 /* Professional Hero Section */
@@ -294,14 +295,16 @@
 }
 
 .hero-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 2rem;
-  max-width: 700px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
 .hero-stat-item {
+  width: 200px;
   text-align: center;
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.8);
@@ -1142,7 +1145,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6rem;
-  align-items: center;
+  align-items: start;
 }
 
 .choose-us-list {
@@ -1244,12 +1247,7 @@
 }
 
 /* CTA Section */
-.cta-section {
-  padding: 8rem 0;
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
-}
+
 
 .cta-background {
   position: absolute;

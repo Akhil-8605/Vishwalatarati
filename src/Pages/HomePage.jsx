@@ -2,7 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { Code, Smartphone, Globe, BarChart3, Palette, GraduationCap, Star, ArrowRight, Play, Users, Award, Zap, X, CheckCircle, TrendingUp, Shield, Target, Lightbulb, Rocket, Heart, Eye, Quote, ChevronLeft, ChevronRight, Sparkles, Cloud, Sun, Building, Phone, Mail, MapPin, Calendar, Clock, Briefcase, Monitor, Database, Cpu, Layers } from 'lucide-react'
+import { Code, Smartphone, Globe, BarChart3, Palette, GraduationCap, Star, ArrowRight, Play, Users, Award, Zap, X, CheckCircle, TrendingUp, Shield, Target, Lightbulb, Rocket, Heart, Eye, Quote, ChevronLeft, ChevronRight, Sparkles, Cloud, Sun, Building, Phone, Mail, MapPin, Calendar, Clock, Briefcase, Monitor, Database, Cpu, Layers, Bubbles } from 'lucide-react'
 import "./HomePage.css"
 import heroImg from "./hero.jpg"
 import teamImg from "./team.jpg"
@@ -17,7 +17,6 @@ const Homepage = () => {
     useEffect(() => {
         setIsLoaded(true)
         const handleMouseMove = (e) => {
-            // Only update mouse position for the follower, don't affect particles
             setMousePosition({ x: e.clientX, y: e.clientY })
         }
         window.addEventListener("mousemove", handleMouseMove)
@@ -29,8 +28,8 @@ const Homepage = () => {
             icon: <Code size={40} />,
             title: "Software Development",
             description: "Custom enterprise solutions built with cutting-edge technologies for scalable business growth.",
-            color: "from-blue-500 to-blue-700",
-            gradient: "bg-gradient-to-br from-blue-50 to-blue-100",
+            color: { from: "#3b82f6", to: "#1e40af" }, // blue-500 to blue-700
+            gradient: { from: "#eff6ff", to: "#dbeafe" }, // blue-50 to blue-100
             features: ["Custom Web Applications", "Enterprise Software", "API Development", "Cloud Solutions"],
             technologies: ["React", "Node.js", "Python", "Java", "AWS"],
             benefits: ["Scalable Architecture", "Security First", "Performance Optimized", "24/7 Support"],
@@ -39,8 +38,8 @@ const Homepage = () => {
             icon: <Smartphone size={40} />,
             title: "Mobile Application",
             description: "Native and cross-platform mobile apps that deliver exceptional user experiences.",
-            color: "from-emerald-500 to-emerald-700",
-            gradient: "bg-gradient-to-br from-emerald-50 to-emerald-100",
+            color: { from: "#10b981", to: "#065f46" }, // emerald-500 to emerald-700
+            gradient: { from: "#ecfdf5", to: "#d1fae5" }, // emerald-50 to emerald-100
             features: ["Native iOS Apps", "Android Development", "Cross-Platform Solutions", "App Store Optimization"],
             technologies: ["React Native", "Flutter", "Swift", "Kotlin"],
             benefits: ["User-Centric Design", "Fast Performance", "Offline Capability", "Push Notifications"],
@@ -49,8 +48,8 @@ const Homepage = () => {
             icon: <Globe size={40} />,
             title: "Website Development",
             description: "Modern, responsive websites that captivate audiences and drive business results.",
-            color: "from-orange-500 to-orange-700",
-            gradient: "bg-gradient-to-br from-orange-50 to-orange-100",
+            color: { from: "#f97316", to: "#c2410c" }, // orange-500 to orange-700
+            gradient: { from: "#fff7ed", to: "#ffedd5" }, // orange-50 to orange-100
             features: ["Responsive Design", "E-commerce Solutions", "CMS Development", "SEO Optimization"],
             technologies: ["Next.js", "WordPress", "Shopify", "Webflow"],
             benefits: ["Mobile Responsive", "Fast Loading", "SEO Friendly", "Analytics Integration"],
@@ -59,8 +58,8 @@ const Homepage = () => {
             icon: <BarChart3 size={40} />,
             title: "Data & Analytics",
             description: "Transform raw data into actionable insights for informed business decisions.",
-            color: "from-purple-500 to-purple-700",
-            gradient: "bg-gradient-to-br from-purple-50 to-purple-100",
+            color: { from: "#8b5cf6", to: "#6b21a8" }, // purple-500 to purple-700
+            gradient: { from: "#faf5ff", to: "#f3e8ff" }, // purple-50 to purple-100
             features: ["Business Intelligence", "Data Visualization", "Predictive Analytics", "Machine Learning"],
             technologies: ["Python", "R", "Tableau", "Power BI", "TensorFlow"],
             benefits: ["Real-time Insights", "Automated Reports", "Predictive Models", "Data Security"],
@@ -69,8 +68,8 @@ const Homepage = () => {
             icon: <Palette size={40} />,
             title: "Digital Strategy & Design",
             description: "Comprehensive digital strategies and compelling designs for brand excellence.",
-            color: "from-pink-500 to-pink-700",
-            gradient: "bg-gradient-to-br from-pink-50 to-pink-100",
+            color: { from: "#ec4899", to: "#be185d" }, // pink-500 to pink-700
+            gradient: { from: "#fdf2f8", to: "#fce7f3" }, // pink-50 to pink-100
             features: ["Brand Strategy", "UI/UX Design", "Digital Marketing", "Content Strategy"],
             technologies: ["Figma", "Adobe Suite", "Sketch", "InVision"],
             benefits: ["Brand Consistency", "User Experience", "Market Research", "Creative Solutions"],
@@ -79,54 +78,59 @@ const Homepage = () => {
             icon: <GraduationCap size={40} />,
             title: "Industrial Training",
             description: "Professional training programs designed to upskill teams with latest technologies.",
-            color: "from-teal-500 to-teal-700",
-            gradient: "bg-gradient-to-br from-teal-50 to-teal-100",
+            color: { from: "#14b8a6", to: "#0f766e" }, // teal-500 to teal-700
+            gradient: { from: "#f0fdfa", to: "#ccfbf1" }, // teal-50 to teal-100
             features: ["Corporate Training", "Skill Development", "Certification Programs", "Workshop Delivery"],
             technologies: ["Latest Tech Stack", "Industry Tools", "Practical Projects"],
             benefits: ["Expert Instructors", "Hands-on Learning", "Industry Certification", "Career Support"],
         },
     ]
 
+
     const testimonials = [
         {
             name: "Sarah Johnson",
             position: "CEO",
             company: "TechCorp Inc.",
-            content: "Vishwalatarati transformed our digital presence completely. Their innovative approach and attention to detail exceeded our expectations. The team delivered a solution that not only met our requirements but also provided insights we hadn't considered.",
+            content:
+                "Vishwalatarati transformed our digital presence completely. Their innovative approach and attention to detail exceeded our expectations. The team delivered a solution that not only met our requirements but also provided insights we hadn't considered.",
             rating: 5,
             image: "/placeholder.svg?height=80&width=80",
             project: "Enterprise Web Platform",
-            results: "40% increase in productivity"
+            results: "40% increase in productivity",
         },
         {
             name: "Michael Chen",
             position: "CTO",
             company: "DataFlow Inc.",
-            content: "The team's expertise in data analytics helped us make informed decisions that boosted our revenue by 40%. Their data visualization dashboard has become an integral part of our daily operations.",
+            content:
+                "The team's expertise in data analytics helped us make informed decisions that boosted our revenue by 40%. Their data visualization dashboard has become an integral part of our daily operations.",
             rating: 5,
             image: "/placeholder.svg?height=80&width=80",
             project: "Data Analytics Platform",
-            results: "40% revenue boost"
+            results: "40% revenue boost",
         },
         {
             name: "Emily Rodriguez",
             position: "Founder",
             company: "StartupX",
-            content: "From concept to deployment, they guided us through every step. The mobile app they developed has over 100K downloads now and continues to receive excellent user reviews.",
+            content:
+                "From concept to deployment, they guided us through every step. The mobile app they developed has over 100K downloads now and continues to receive excellent user reviews.",
             rating: 5,
             image: "/placeholder.svg?height=80&width=80",
             project: "Mobile App Development",
-            results: "100K+ downloads"
+            results: "100K+ downloads",
         },
         {
             name: "David Kumar",
             position: "Marketing Director",
             company: "GrowthCo",
-            content: "Their digital strategy and design work helped us rebrand successfully. Our online engagement increased by 300% and we've seen significant improvement in lead generation.",
+            content:
+                "Their digital strategy and design work helped us rebrand successfully. Our online engagement increased by 300% and we've seen significant improvement in lead generation.",
             rating: 5,
             image: "/placeholder.svg?height=80&width=80",
             project: "Digital Transformation",
-            results: "300% engagement increase"
+            results: "300% engagement increase",
         },
     ]
 
@@ -142,25 +146,25 @@ const Homepage = () => {
             title: "Innovation Excellence",
             description: "Recognized for cutting-edge solutions",
             icon: <Lightbulb size={40} />,
-            color: "from-yellow-400 to-orange-500",
+            color: { from: "#facc15", to: "#f97316" }, // yellow-400 to orange-500
         },
         {
             title: "Client Satisfaction",
             description: "98% client retention rate",
             icon: <Heart size={40} />,
-            color: "from-pink-400 to-rose-500",
+            color: { from: "#f472b6", to: "#f43f5e" }, // pink-400 to rose-500
         },
         {
             title: "Technical Expertise",
             description: "Certified in latest technologies",
             icon: <Shield size={40} />,
-            color: "from-emerald-400 to-teal-500",
+            color: { from: "#34d399", to: "#14b8a6" }, // emerald-400 to teal-500
         },
         {
             title: "Growth Partner",
             description: "Helping businesses scale globally",
             icon: <TrendingUp size={40} />,
-            color: "from-blue-400 to-indigo-500",
+            color: { from: "#60a5fa", to: "#6366f1" }, // blue-400 to indigo-500
         },
     ]
 
@@ -170,30 +174,31 @@ const Homepage = () => {
             title: "Discovery & Planning",
             description: "We analyze your requirements and create a comprehensive project roadmap.",
             icon: <Target size={30} />,
-            color: "from-blue-500 to-blue-600"
+            color: { from: "#3b82f6", to: "#2563eb" }, // blue-500 to blue-600
         },
         {
             step: "02",
             title: "Design & Prototype",
             description: "Creating intuitive designs and interactive prototypes for validation.",
             icon: <Palette size={30} />,
-            color: "from-purple-500 to-purple-600"
+            color: { from: "#8b5cf6", to: "#7c3aed" }, // purple-500 to purple-600
         },
         {
             step: "03",
             title: "Development & Testing",
             description: "Building robust solutions with rigorous testing and quality assurance.",
             icon: <Code size={30} />,
-            color: "from-emerald-500 to-emerald-600"
+            color: { from: "#10b981", to: "#059669" }, // emerald-500 to emerald-600
         },
         {
             step: "04",
             title: "Launch & Support",
             description: "Seamless deployment with ongoing maintenance and support.",
             icon: <Rocket size={30} />,
-            color: "from-orange-500 to-orange-600"
-        }
-    ]
+            color: { from: "#f97316", to: "#ea580c" }, // orange-500 to orange-600
+        },
+    ];
+
 
     const technologies = [
         { name: "React", category: "Frontend", icon: <Monitor size={24} /> },
@@ -214,31 +219,41 @@ const Homepage = () => {
 
     return (
         <div className="homepage">
-            {/* Static Particle Background - No mouse interaction */}
-            <div className="particles">
-                {[...Array(60)].map((_, i) => (
+            {/* Enhanced Particle Background */}
+            <div className="hero-particles">
+                {/* Large decorative shapes */}
+                <div className="particle-shape particle-circle-1"></div>
+                <div className="particle-shape particle-circle-2"></div>
+                <div className="particle-shape particle-circle-3"></div>
+                <div className="particle-shape particle-circle-4"></div>
+                <div className="particle-shape particle-circle-5"></div>
+                <div className="particle-shape particle-circle-6"></div>
+
+                {/* Medium floating elements */}
+                <div className="particle-shape particle-dot-1"></div>
+                <div className="particle-shape particle-dot-2"></div>
+                <div className="particle-shape particle-dot-3"></div>
+                <div className="particle-shape particle-dot-4"></div>
+                <div className="particle-shape particle-dot-5"></div>
+                <div className="particle-shape particle-dot-6"></div>
+                <div className="particle-shape particle-dot-7"></div>
+                <div className="particle-shape particle-dot-8"></div>
+
+                {/* Small animated particles */}
+                {[...Array(10)].map((_, i) => (
                     <div
                         key={i}
-                        className={`particle ${i % 5 === 0
-                            ? "particle-blue"
-                            : i % 5 === 1
-                                ? "particle-purple"
-                                : i % 5 === 2
-                                    ? "particle-emerald"
-                                    : i % 5 === 3
-                                        ? "particle-orange"
-                                        : "particle-pink"
-                            }`}
+                        className={`particle-mini particle-mini-${(i % 4) + 1}`}
                         style={{
                             left: `${Math.random() * 100}%`,
-                            animationDelay: `${Math.random() * 20}s`,
-                            animationDuration: `${15 + Math.random() * 25}s`,
+                            top: `${Math.random() * 100}%`,
+                            animationDelay: `${Math.random() * 10}s`,
                         }}
                     />
                 ))}
             </div>
 
-            {/* Mouse Follower - Only follows cursor */}
+            {/* Mouse Follower */}
             <div
                 className="mouse-follower"
                 style={{
@@ -251,26 +266,22 @@ const Homepage = () => {
             <nav className="navbar">
                 <motion.div className="nav-container" initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.8 }}>
                     <div className="logo">
-                        <div className="logo-icon">
-                            <Zap size={24} />
-                        </div>
+                        {/* <div className="logo-icon">
+                            <Bubbles size={24} />
+                        </div> */}
                         <h2>Vishwalatarati</h2>
                     </div>
                     <div className="nav-links">
                         <Link to="/">Home</Link>
                         <Link to="/about">About</Link>
                         <Link to="/contact">Contact</Link>
-                        <button className="nav-cta">Get Started</button>
+                        <button className="nav-cta" onClick={()=>{window.location.href = "/contact"}}>Get Started</button>
                     </div>
                 </motion.div>
             </nav>
 
-            {/* Professional Hero Section */}
+            {/* Enhanced Hero Section */}
             <section className="hero">
-                <div className="hero-background">
-                    <div className="hero-gradient"></div>
-                    <div className="hero-pattern"></div>
-                </div>
                 <div className="hero-container">
                     <motion.div
                         className="hero-content"
@@ -310,13 +321,9 @@ const Homepage = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.9 }}
                         >
-                            <button className="btn-primary">
+                            <button className="btn-primary-home" onClick={() => { window.location.href = "/contact" }}>
                                 <span>Start Your Journey</span>
                                 <ArrowRight size={20} />
-                            </button>
-                            <button className="btn-secondary">
-                                <Play size={20} />
-                                <span>Explore Solutions</span>
                             </button>
                         </motion.div>
                         <motion.div
@@ -326,7 +333,7 @@ const Homepage = () => {
                             transition={{ duration: 1, delay: 1.1 }}
                         >
                             <div className="stat-item">
-                                <span className="stat-number">500+</span>
+                                <span className="stat-number">10+</span>
                                 <span className="stat-label">Projects Delivered</span>
                             </div>
                             <div className="stat-item">
@@ -374,7 +381,7 @@ const Homepage = () => {
             </section>
 
             {/* Enhanced Stats Section */}
-            <section className="stats-section">
+            {/* <section className="stats-section">
                 <div className="container">
                     <div className="stats-grid">
                         {stats.map((stat, index) => (
@@ -395,7 +402,7 @@ const Homepage = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Enhanced About Section */}
             <section className="about-section">
@@ -491,7 +498,16 @@ const Homepage = () => {
                                         transition={{ duration: 0.6, delay: index * 0.1 }}
                                         viewport={{ once: true }}
                                     >
-                                        <div className={`achievement-icon bg-gradient-to-r ${achievement.color}`}>{achievement.icon}</div>
+                                        <div
+                                            className="achievement-icon"
+                                            style={{
+                                                background: `linear-gradient(to right, ${achievement.color.from}, ${achievement.color.to})`,
+                                            }}
+                                        >
+                                            {achievement.icon}
+                                        </div>
+
+
                                         <div className="achievement-content">
                                             <h4>{achievement.title}</h4>
                                             <p>{achievement.description}</p>
@@ -534,9 +550,9 @@ const Homepage = () => {
                             >
                                 <div className="service-card-inner">
                                     <div className="service-header">
-                                        <div className={`service-icon bg-gradient-to-r ${service.color}`}>
-                                            {service.icon}
-                                        </div>
+                                        <div className={`service-icon`} style={{
+                                            background: `linear-gradient(to right, ${service.color.from}, ${service.color.to})`,
+                                        }}>{service.icon}</div>
                                         <div className="service-badge">
                                             <Sparkles size={14} />
                                             <span>Premium</span>
@@ -555,10 +571,7 @@ const Homepage = () => {
                                         </div>
                                     </div>
                                     <div className="service-footer">
-                                        <button
-                                            className="service-btn"
-                                            onClick={() => setSelectedService(index)}
-                                        >
+                                        <button className="service-btn" onClick={() => setSelectedService(index)}>
                                             <span>Explore Service</span>
                                             <ArrowRight size={16} />
                                         </button>
@@ -606,14 +619,14 @@ const Homepage = () => {
                             <motion.div className="director-photo" whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
                                 <img src={directorImg} alt="Gauram Gham - Director" />
                                 <div className="director-overlay">
-                                    <div className="social-links">
+                                    {/* <div className="social-links">
                                         <a href="#" className="social-link">
                                             LinkedIn
                                         </a>
                                         <a href="#" className="social-link">
                                             Twitter
                                         </a>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </motion.div>
                             <div className="director-badge">
@@ -626,7 +639,7 @@ const Homepage = () => {
                             <p className="director-title">Director & Chief Technology Officer</p>
                             <div className="director-bio">
                                 <p>
-                                    With over 15 years of experience in technology and business strategy, Gauram leads Vishwalatarati with
+                                    With over 5 years of experience in technology and business strategy, Gauram leads Vishwalatarati with
                                     a vision to transform how businesses leverage technology for growth. His expertise spans across
                                     multiple domains including software architecture, data science, and digital transformation.
                                 </p>
@@ -638,15 +651,15 @@ const Homepage = () => {
                             </div>
                             <div className="director-achievements">
                                 <div className="achievement">
-                                    <span className="achievement-number">15+</span>
+                                    <span className="achievement-number">5+</span>
                                     <span className="achievement-label">Years Experience</span>
                                 </div>
                                 <div className="achievement">
-                                    <span className="achievement-number">500+</span>
+                                    <span className="achievement-number">50+</span>
                                     <span className="achievement-label">Projects Led</span>
                                 </div>
                                 <div className="achievement">
-                                    <span className="achievement-number">50+</span>
+                                    <span className="achievement-number">10+</span>
                                     <span className="achievement-label">Team Members</span>
                                 </div>
                             </div>
@@ -780,9 +793,15 @@ const Homepage = () => {
                                 viewport={{ once: true }}
                             >
                                 <div className="process-number">{step.step}</div>
-                                <div className={`process-icon bg-gradient-to-r ${step.color}`}>
+                                <div
+                                    className="process-icon"
+                                    style={{
+                                        background: `linear-gradient(to right, ${step.color.from}, ${step.color.to})`,
+                                    }}
+                                >
                                     {step.icon}
                                 </div>
+
                                 <h3>{step.title}</h3>
                                 <p>{step.description}</p>
                                 {index < processSteps.length - 1 && (
@@ -849,7 +868,10 @@ const Homepage = () => {
                     >
                         <div className="cta-text">
                             <h2>Ready to Transform Your Business?</h2>
-                            <p>Let's collaborate to bring your vision to life with innovative technology solutions that drive real results.</p>
+                            <p>
+                                Let's collaborate to bring your vision to life with innovative technology solutions that drive real
+                                results.
+                            </p>
                         </div>
                         <div className="cta-buttons">
                             <Link to="/contact" className="btn-primary">
@@ -889,27 +911,30 @@ const Homepage = () => {
                         <div className="footer-main">
                             <div className="footer-brand">
                                 <div className="footer-logo">
-                                    <div className="footer-logo-icon">
+                                    {/* <div className="footer-logo-icon">
                                         <Zap size={28} />
-                                    </div>
+                                    </div> */}
                                     <h3>Vishwalatarati</h3>
                                 </div>
-                                <p>Empowering businesses through innovative digital solutions and cutting-edge technology. Your success is our mission.</p>
+                                <p>
+                                    Empowering businesses through innovative digital solutions and cutting-edge technology. Your success
+                                    is our mission.
+                                </p>
                                 <div className="footer-contact">
                                     <div className="contact-item">
                                         <Phone size={16} />
-                                        <span>+91 98765 43210</span>
+                                        <span>+91 7620131908</span>
                                     </div>
                                     <div className="contact-item">
                                         <Mail size={16} />
-                                        <span>info@vishwalatarati.com</span>
+                                        <span>vishwalarati@gmail.com</span>
                                     </div>
                                     <div className="contact-item">
                                         <MapPin size={16} />
-                                        <span>Bangalore, Karnataka, India</span>
+                                        <span>783, Swami Vivekananda Nagar, Near Solapur Airport, Solapur-413002, Maharashtra.</span>
                                     </div>
                                 </div>
-                                <div className="social-links">
+                                {/* <div className="social-links">
                                     <a href="#" className="social-link">
                                         <span>LinkedIn</span>
                                     </a>
@@ -922,7 +947,7 @@ const Homepage = () => {
                                     <a href="#" className="social-link">
                                         <span>Instagram</span>
                                     </a>
-                                </div>
+                                </div> */}
                             </div>
                             <div className="footer-links">
                                 <div className="footer-section">
@@ -939,8 +964,12 @@ const Homepage = () => {
                                 <div className="footer-section">
                                     <h4>Company</h4>
                                     <ul>
-                                        <li><Link to="/about">About Us</Link></li>
-                                        <li><Link to="/contact">Contact</Link></li>
+                                        <li>
+                                            <Link to="/about">About Us</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/contact">Contact</Link>
+                                        </li>
                                         <li>Careers</li>
                                         <li>Blog</li>
                                         <li>Case Studies</li>
@@ -958,23 +987,12 @@ const Homepage = () => {
                                         <li>Webinars</li>
                                     </ul>
                                 </div>
-                                <div className="footer-section">
-                                    <h4>Industries</h4>
-                                    <ul>
-                                        <li>Healthcare</li>
-                                        <li>Finance</li>
-                                        <li>E-commerce</li>
-                                        <li>Education</li>
-                                        <li>Manufacturing</li>
-                                        <li>Startups</li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="footer-bottom">
                         <div className="footer-bottom-left">
-                            <p>&copy; 2024 Vishwalatarati. All rights reserved.</p>
+                            <p>&copy; 2025 Vishwalatarati. All rights reserved.</p>
                         </div>
                         <div className="footer-bottom-links">
                             <a href="#">Privacy Policy</a>
@@ -1007,7 +1025,7 @@ const Homepage = () => {
                                 <X size={24} />
                             </button>
                             <div className="modal-header">
-                                <div className={`modal-icon bg-gradient-to-r ${services[selectedService].color}`}>
+                                <div className={`modal-icon`} style={{ background: `linear-gradient(to right, ${services[selectedService].color.from}, ${services[selectedService].color.to})` }}>
                                     {services[selectedService].icon}
                                 </div>
                                 <h2>{services[selectedService].title}</h2>
@@ -1047,12 +1065,12 @@ const Homepage = () => {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="modal-footer">
+                            {/* <div className="modal-footer">
                                 <button className="btn-primary">
                                     Get Started <ArrowRight size={16} />
                                 </button>
                                 <button className="btn-secondary">Request Quote</button>
-                            </div>
+                            </div> */}
                         </motion.div>
                     </motion.div>
                 )}
