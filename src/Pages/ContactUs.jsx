@@ -1,4 +1,5 @@
 "use client"
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
@@ -279,735 +280,757 @@ const ContactUs = () => {
   ]
 
   return (
-    <div className="contact-page">
-      {/* Enhanced Particles Background */}
-      <div className="contact-particles">
-        {[...Array(100)].map((_, i) => (
-          <div
-            key={i}
-            className={`contact-particle contact-particle-${(i % 4) + 1}`}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 20}s`,
-              animationDuration: `${15 + Math.random() * 25}s`,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Mouse Follower */}
-      <div
-        className="mouse-follower"
-        style={{
-          left: mousePosition.x - 10,
-          top: mousePosition.y - 10,
-        }}
-      />
-
-      {/* Navigation */}
-      <nav className="navbar">
-        <motion.div className="nav-container" initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.8 }}>
-          <div className="logo">
-            <div className="logo-icon">
-              <Zap size={24} />
-            </div>
-            <h2>Vishwalatarati</h2>
-          </div>
-          <div className="nav-links">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
-            <button className="nav-cta">Get Started</button>
-          </div>
-        </motion.div>
-      </nav>
-
-      {/* Enhanced Hero Section */}
-      <section className="contact-hero">
-        <div className="hero-background">
-          <div className="hero-gradient"></div>
-          <div className="hero-pattern"></div>
+    <>
+      <Helmet>
+        <title>Contact Us | Vishwalatarati – Solapur's Trusted IT Partner</title>
+        <meta
+          name="description"
+          content="Get in touch with Vishwalatarati Digital Solutions Pvt Ltd for project consultations, service inquiries, or business collaborations. We’re here to assist you."
+        />
+        <meta
+          name="keywords"
+          content="Contact Vishwalatarati, Software consultation Solapur, IT services contact, Web development support Maharashtra, Reach software company"
+        />
+        <meta name="author" content="Vishwalatarati Digital Solutions Pvt Ltd" />
+        <meta property="og:title" content="Contact Vishwalatarati Digital Solutions Pvt Ltd" />
+        <meta property="og:description" content="Talk to our experts for your next software or web project." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://vishwalatarati.in/contact" />
+        <meta property="og:image" content="/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Vishwalatarati Digital Solutions Pvt Ltd" />
+        <meta name="twitter:description" content="Connect with Solapur’s leading web and app development team." />
+        <meta name="twitter:image" content="/og-image.png" />
+      </Helmet>
+      <div className="contact-page">
+        {/* Enhanced Particles Background */}
+        <div className="contact-particles">
+          {[...Array(100)].map((_, i) => (
+            <div
+              key={i}
+              className={`contact-particle contact-particle-${(i % 4) + 1}`}
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 20}s`,
+                animationDuration: `${15 + Math.random() * 25}s`,
+              }}
+            />
+          ))}
         </div>
-        <div className="container">
-          <motion.div
-            className="contact-hero-content"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 50 }}
-            transition={{ duration: 1, delay: 0.2 }}
-          >
-            <div className="hero-badge">
-              <Sparkles size={16} />
-              <span>Get In Touch</span>
+
+        {/* Mouse Follower */}
+        <div
+          className="mouse-follower"
+          style={{
+            left: mousePosition.x - 10,
+            top: mousePosition.y - 10,
+          }}
+        />
+
+        {/* Navigation */}
+        <nav className="navbar">
+          <motion.div className="nav-container" initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.8 }}>
+            <div className="logo">
+              <div className="logo-icon">
+                <Zap size={24} />
+              </div>
+              <h2>Vishwalatarati</h2>
             </div>
-            <h1>Let's Build Something Amazing Together</h1>
-            <p>
-              Ready to transform your business with cutting-edge technology? Our team of experts is here to help you
-              achieve your digital goals and drive innovation forward.
-            </p>
-            <div className="hero-features">
-              <div className="hero-feature">
-                <CheckCircle size={18} />
-                <span>Free Consultation</span>
-              </div>
-              <div className="hero-feature">
-                <CheckCircle size={18} />
-                <span>24/7 Support</span>
-              </div>
-              <div className="hero-feature">
-                <CheckCircle size={18} />
-                <span>Custom Solutions</span>
-              </div>
-              <div className="hero-feature">
-                <CheckCircle size={18} />
-                <span>Expert Team</span>
-              </div>
-            </div>
-            <div className="hero-cta">
-              <button className="btn-primary">
-                <span>Start Your Project</span>
-                <ArrowRight size={20} />
-              </button>
-              <button className="btn-secondary">
-                <Calendar size={20} />
-                <span>Schedule Consultation</span>
-              </button>
+            <div className="nav-links">
+              <Link to="/">Home</Link>
+              <Link to="/about">About</Link>
+              <Link to="/contact">Contact</Link>
+              <button className="nav-cta">Get Started</button>
             </div>
           </motion.div>
-        </div>
-      </section>
+        </nav>
 
-      {/* Enhanced Contact Methods Section */}
-      <section className="contact-methods-section">
-        <div className="container">
-          <motion.div
-            className="section-header"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="section-badge">
-              <Phone size={16} />
-              <span>Contact Methods</span>
-            </div>
-            <h2>Multiple Ways to Reach Us</h2>
-            <p>Choose the most convenient way to get in touch with our team</p>
-          </motion.div>
-          <div className="contact-methods-grid">
-            {contactMethods.map((method, index) => (
-              <motion.div
-                key={index}
-                className="contact-method-card"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                viewport={{ once: true }}
-              >
-                <div className={`method-icon`} style={{ background: `linear-gradient(to right, ${method.color.from}, ${method.color.to})`, }}>{method.icon}</div>
-                <div className="method-content">
-                  <h3>{method.title}</h3>
-                  <p className="method-subtitle">{method.subtitle}</p>
-                  <div className="method-details">
-                    <span className="primary-detail">{method.primary}</span>
-                    <span className="secondary-detail">{method.secondary}</span>
-                  </div>
-                  <p className="method-description">{method.description}</p>
-                  <button className="method-action">
-                    {method.action}
-                    <ArrowRight size={16} />
-                  </button>
-                </div>
-                <div className="method-glow"></div>
-              </motion.div>
-            ))}
+        {/* Enhanced Hero Section */}
+        <section className="contact-hero">
+          <div className="hero-background">
+            <div className="hero-gradient"></div>
+            <div className="hero-pattern"></div>
           </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="why-choose-section">
-        <div className="container">
-          <motion.div
-            className="section-header"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="section-badge">
-              <Star size={16} />
-              <span>Why Choose Us</span>
-            </div>
-            <h2>Why Businesses Trust Vishwalatarati</h2>
-            <p>Discover what makes us the preferred technology partner</p>
-          </motion.div>
-          <div className="why-choose-grid">
-            {whyChooseUs.map((item, index) => (
-              <motion.div
-                key={index}
-                className="why-choose-card"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.03 }}
-                viewport={{ once: true }}
-              >
-                <div className={`choose-icon bg-gradient-to-r ${item.color}`}>{item.icon}</div>
-                <div className="choose-content">
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                  <div className="choose-stats">{item.stats}</div>
-                </div>
-                <div className="choose-shine"></div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Enhanced Contact Form Section */}
-      <section className="contact-form-section">
-        <div className="container">
-          <div className="contact-form-content">
+          <div className="container">
             <motion.div
-              className="form-info"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="contact-hero-content"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 50 }}
+              transition={{ duration: 1, delay: 0.2 }}
+            >
+              <div className="hero-badge">
+                <Sparkles size={16} />
+                <span>Get In Touch</span>
+              </div>
+              <h1>Let's Build Something Amazing Together</h1>
+              <p>
+                Ready to transform your business with cutting-edge technology? Our team of experts is here to help you
+                achieve your digital goals and drive innovation forward.
+              </p>
+              <div className="hero-features">
+                <div className="hero-feature">
+                  <CheckCircle size={18} />
+                  <span>Free Consultation</span>
+                </div>
+                <div className="hero-feature">
+                  <CheckCircle size={18} />
+                  <span>24/7 Support</span>
+                </div>
+                <div className="hero-feature">
+                  <CheckCircle size={18} />
+                  <span>Custom Solutions</span>
+                </div>
+                <div className="hero-feature">
+                  <CheckCircle size={18} />
+                  <span>Expert Team</span>
+                </div>
+              </div>
+              <div className="hero-cta">
+                <button className="btn-primary">
+                  <span>Start Your Project</span>
+                  <ArrowRight size={20} />
+                </button>
+                <button className="btn-secondary">
+                  <Calendar size={20} />
+                  <span>Schedule Consultation</span>
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Enhanced Contact Methods Section */}
+        <section className="contact-methods-section">
+          <div className="container">
+            <motion.div
+              className="section-header"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="section-badge">
+                <Phone size={16} />
+                <span>Contact Methods</span>
+              </div>
+              <h2>Multiple Ways to Reach Us</h2>
+              <p>Choose the most convenient way to get in touch with our team</p>
+            </motion.div>
+            <div className="contact-methods-grid">
+              {contactMethods.map((method, index) => (
+                <motion.div
+                  key={index}
+                  className="contact-method-card"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  viewport={{ once: true }}
+                >
+                  <div className={`method-icon`} style={{ background: `linear-gradient(to right, ${method.color.from}, ${method.color.to})`, }}>{method.icon}</div>
+                  <div className="method-content">
+                    <h3>{method.title}</h3>
+                    <p className="method-subtitle">{method.subtitle}</p>
+                    <div className="method-details">
+                      <span className="primary-detail">{method.primary}</span>
+                      <span className="secondary-detail">{method.secondary}</span>
+                    </div>
+                    <p className="method-description">{method.description}</p>
+                    <button className="method-action">
+                      {method.action}
+                      <ArrowRight size={16} />
+                    </button>
+                  </div>
+                  <div className="method-glow"></div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Us Section */}
+        <section className="why-choose-section">
+          <div className="container">
+            <motion.div
+              className="section-header"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="section-badge">
+                <Star size={16} />
+                <span>Why Choose Us</span>
+              </div>
+              <h2>Why Businesses Trust Vishwalatarati</h2>
+              <p>Discover what makes us the preferred technology partner</p>
+            </motion.div>
+            <div className="why-choose-grid">
+              {whyChooseUs.map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="why-choose-card"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -8, scale: 1.03 }}
+                  viewport={{ once: true }}
+                >
+                  <div className={`choose-icon bg-gradient-to-r ${item.color}`}>{item.icon}</div>
+                  <div className="choose-content">
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                    <div className="choose-stats">{item.stats}</div>
+                  </div>
+                  <div className="choose-shine"></div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Enhanced Contact Form Section */}
+        <section className="contact-form-section">
+          <div className="container">
+            <div className="contact-form-content">
+              <motion.div
+                className="form-info"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="section-badge">
+                  <MessageSquare size={16} />
+                  <span>Start Your Project</span>
+                </div>
+                <h2>Tell Us About Your Project</h2>
+                <p>
+                  Fill out the form and we'll get back to you within 24 hours. Let's discuss how we can bring your vision
+                  to life with our expertise and innovative solutions.
+                </p>
+                <div className="form-benefits">
+                  <div className="benefit">
+                    <CheckCircle className="benefit-icon" />
+                    <div className="benefit-content">
+                      <h4>Free Consultation</h4>
+                      <p>Comprehensive project analysis</p>
+                    </div>
+                  </div>
+                  <div className="benefit">
+                    <CheckCircle className="benefit-icon" />
+                    <div className="benefit-content">
+                      <h4>Custom Solution</h4>
+                      <p>Tailored to your specific needs</p>
+                    </div>
+                  </div>
+                  <div className="benefit">
+                    <CheckCircle className="benefit-icon" />
+                    <div className="benefit-content">
+                      <h4>Transparent Pricing</h4>
+                      <p>No hidden costs or surprises</p>
+                    </div>
+                  </div>
+                  <div className="benefit">
+                    <CheckCircle className="benefit-icon" />
+                    <div className="benefit-content">
+                      <h4>Dedicated Support</h4>
+                      <p>Personal project manager assigned</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="contact-stats">
+                  <div className="contact-stat">
+                    <span className="stat-number">24hrs</span>
+                    <span className="stat-label">Response Time</span>
+                  </div>
+                  <div className="contact-stat">
+                    <span className="stat-number">98%</span>
+                    <span className="stat-label">Client Satisfaction</span>
+                  </div>
+                  <div className="contact-stat">
+                    <span className="stat-number">500+</span>
+                    <span className="stat-label">Projects Delivered</span>
+                  </div>
+                </div>
+              </motion.div>
+              <motion.div
+                className="contact-form-container"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                {!isSubmitted ? (
+                  <form className="contact-form" onSubmit={handleSubmit}>
+                    <div className="form-header">
+                      <h3>Project Details</h3>
+                      <p>Help us understand your requirements better</p>
+                    </div>
+                    <div className="form-row">
+                      <div className="form-group">
+                        <label htmlFor="name">Full Name *</label>
+                        <div className="input-wrapper">
+                          <User size={18} />
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            required
+                            placeholder="Enter your full name"
+                          />
+                        </div>
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="email">Email Address *</label>
+                        <div className="input-wrapper">
+                          <Mail size={18} />
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            required
+                            placeholder="Enter your email"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-row">
+                      <div className="form-group">
+                        <label htmlFor="phone">Phone Number</label>
+                        <div className="input-wrapper">
+                          <Phone size={18} />
+                          <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            placeholder="Enter your phone number"
+                          />
+                        </div>
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="company">Company Name</label>
+                        <div className="input-wrapper">
+                          <Building size={18} />
+                          <input
+                            type="text"
+                            id="company"
+                            name="company"
+                            value={formData.company}
+                            onChange={handleInputChange}
+                            placeholder="Enter your company name"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-row">
+                      <div className="form-group">
+                        <label htmlFor="service">Service Interested In</label>
+                        <div className="input-wrapper">
+                          <Globe size={18} />
+                          <select id="service" name="service" value={formData.service} onChange={handleInputChange}>
+                            <option value="">Select a service</option>
+                            {services.map((service, index) => (
+                              <option key={index} value={service}>
+                                {service}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="budget">Project Budget</label>
+                        <div className="input-wrapper">
+                          <Target size={18} />
+                          <select id="budget" name="budget" value={formData.budget} onChange={handleInputChange}>
+                            <option value="">Select budget range</option>
+                            {budgetRanges.map((budget, index) => (
+                              <option key={index} value={budget}>
+                                {budget}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="timeline">Project Timeline</label>
+                      <div className="input-wrapper">
+                        <Calendar size={18} />
+                        <select id="timeline" name="timeline" value={formData.timeline} onChange={handleInputChange}>
+                          <option value="">Select timeline</option>
+                          {timelines.map((timeline, index) => (
+                            <option key={index} value={timeline}>
+                              {timeline}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="message">Project Details *</label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        required
+                        rows={5}
+                        placeholder="Tell us about your project requirements, goals, and any specific needs or challenges you're facing..."
+                      ></textarea>
+                    </div>
+                    <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                      {isSubmitting ? (
+                        <>
+                          <div className="spinner"></div>
+                          Sending Message...
+                        </>
+                      ) : (
+                        <>
+                          Send Message <Send size={20} />
+                        </>
+                      )}
+                    </button>
+                    <p className="form-note">
+                      By submitting this form, you agree to our privacy policy and terms of service.
+                    </p>
+                  </form>
+                ) : (
+                  <motion.div
+                    className="success-message"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="success-icon">
+                      <CheckCircle size={60} />
+                    </div>
+                    <h3>Message Sent Successfully!</h3>
+                    <p>
+                      Thank you for reaching out to us. We've received your message and our team will get back to you
+                      within 24 hours with a detailed response.
+                    </p>
+                    <div className="success-actions">
+                      <button className="btn-primary" onClick={() => setIsSubmitted(false)}>
+                        Send Another Message
+                      </button>
+                      <button className="btn-secondary">
+                        <Calendar size={16} />
+                        Schedule a Call
+                      </button>
+                    </div>
+                  </motion.div>
+                )}
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Section */}
+        <section className="process-section">
+          <div className="container">
+            <motion.div
+              className="section-header"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="section-badge">
+                <Briefcase size={16} />
+                <span>Our Process</span>
+              </div>
+              <h2>How We Work With You</h2>
+              <p>A streamlined process designed for successful project delivery</p>
+            </motion.div>
+            <div className="process-grid">
+              {processSteps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  className="process-card"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="process-number">{step.step}</div>
+                  <div className="process-icon" style={{
+                    background: `linear-gradient(to right, ${step.color.from}, ${step.color.to})`,
+                  }}>{step.icon}</div>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                  <div className="process-duration">{step.duration}</div>
+                  {index < processSteps.length - 1 && (
+                    <div className="process-connector">
+                      <ArrowRight size={20} />
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Enhanced FAQ Section */}
+        <section className="faq-section">
+          <div className="container">
+            <motion.div
+              className="section-header"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
               <div className="section-badge">
                 <MessageSquare size={16} />
-                <span>Start Your Project</span>
+                <span>FAQ</span>
               </div>
-              <h2>Tell Us About Your Project</h2>
-              <p>
-                Fill out the form and we'll get back to you within 24 hours. Let's discuss how we can bring your vision
-                to life with our expertise and innovative solutions.
-              </p>
-              <div className="form-benefits">
-                <div className="benefit">
-                  <CheckCircle className="benefit-icon" />
-                  <div className="benefit-content">
-                    <h4>Free Consultation</h4>
-                    <p>Comprehensive project analysis</p>
-                  </div>
-                </div>
-                <div className="benefit">
-                  <CheckCircle className="benefit-icon" />
-                  <div className="benefit-content">
-                    <h4>Custom Solution</h4>
-                    <p>Tailored to your specific needs</p>
-                  </div>
-                </div>
-                <div className="benefit">
-                  <CheckCircle className="benefit-icon" />
-                  <div className="benefit-content">
-                    <h4>Transparent Pricing</h4>
-                    <p>No hidden costs or surprises</p>
-                  </div>
-                </div>
-                <div className="benefit">
-                  <CheckCircle className="benefit-icon" />
-                  <div className="benefit-content">
-                    <h4>Dedicated Support</h4>
-                    <p>Personal project manager assigned</p>
-                  </div>
-                </div>
-              </div>
-              <div className="contact-stats">
-                <div className="contact-stat">
-                  <span className="stat-number">24hrs</span>
-                  <span className="stat-label">Response Time</span>
-                </div>
-                <div className="contact-stat">
-                  <span className="stat-number">98%</span>
-                  <span className="stat-label">Client Satisfaction</span>
-                </div>
-                <div className="contact-stat">
-                  <span className="stat-number">500+</span>
-                  <span className="stat-label">Projects Delivered</span>
-                </div>
-              </div>
+              <h2>Frequently Asked Questions</h2>
+              <p>Quick answers to common questions about our services</p>
             </motion.div>
+            <div className="faq-tabs">
+              {tabs.map((tab, index) => (
+                <button
+                  key={index}
+                  className={`faq-tab ${activeTab === index ? "active" : ""}`}
+                  onClick={() => setActiveTab(index)}
+                >
+                  {tab.icon}
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            <div className="faq-content">
+              <div className="faq-grid">
+                {faqs
+                  .filter((faq) => {
+                    if (activeTab === 0) return ["Timeline", "Support"].includes(faq.category)
+                    if (activeTab === 1) return ["Technology", "Collaboration"].includes(faq.category)
+                    if (activeTab === 2) return ["Pricing", "Security"].includes(faq.category)
+                    return true
+                  })
+                  .map((faq, index) => (
+                    <motion.div
+                      key={index}
+                      className="faq-item"
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="faq-icon">
+                        <MessageCircle size={20} />
+                      </div>
+                      <div className="faq-content-text">
+                        <h3>{faq.question}</h3>
+                        <p>{faq.answer}</p>
+                        <span className="faq-category">{faq.category}</span>
+                      </div>
+                    </motion.div>
+                  ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Enhanced Office Location Section */}
+        <section className="office-section">
+          <div className="container">
             <motion.div
-              className="contact-form-container"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="section-header"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              {!isSubmitted ? (
-                <form className="contact-form" onSubmit={handleSubmit}>
-                  <div className="form-header">
-                    <h3>Project Details</h3>
-                    <p>Help us understand your requirements better</p>
-                  </div>
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="name">Full Name *</label>
-                      <div className="input-wrapper">
-                        <User size={18} />
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          required
-                          placeholder="Enter your full name"
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="email">Email Address *</label>
-                      <div className="input-wrapper">
-                        <Mail size={18} />
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          required
-                          placeholder="Enter your email"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="phone">Phone Number</label>
-                      <div className="input-wrapper">
-                        <Phone size={18} />
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          placeholder="Enter your phone number"
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="company">Company Name</label>
-                      <div className="input-wrapper">
-                        <Building size={18} />
-                        <input
-                          type="text"
-                          id="company"
-                          name="company"
-                          value={formData.company}
-                          onChange={handleInputChange}
-                          placeholder="Enter your company name"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="service">Service Interested In</label>
-                      <div className="input-wrapper">
-                        <Globe size={18} />
-                        <select id="service" name="service" value={formData.service} onChange={handleInputChange}>
-                          <option value="">Select a service</option>
-                          {services.map((service, index) => (
-                            <option key={index} value={service}>
-                              {service}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="budget">Project Budget</label>
-                      <div className="input-wrapper">
-                        <Target size={18} />
-                        <select id="budget" name="budget" value={formData.budget} onChange={handleInputChange}>
-                          <option value="">Select budget range</option>
-                          {budgetRanges.map((budget, index) => (
-                            <option key={index} value={budget}>
-                              {budget}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="timeline">Project Timeline</label>
-                    <div className="input-wrapper">
-                      <Calendar size={18} />
-                      <select id="timeline" name="timeline" value={formData.timeline} onChange={handleInputChange}>
-                        <option value="">Select timeline</option>
-                        {timelines.map((timeline, index) => (
-                          <option key={index} value={timeline}>
-                            {timeline}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="message">Project Details *</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={5}
-                      placeholder="Tell us about your project requirements, goals, and any specific needs or challenges you're facing..."
-                    ></textarea>
-                  </div>
-                  <button type="submit" className="submit-btn" disabled={isSubmitting}>
-                    {isSubmitting ? (
-                      <>
-                        <div className="spinner"></div>
-                        Sending Message...
-                      </>
-                    ) : (
-                      <>
-                        Send Message <Send size={20} />
-                      </>
-                    )}
-                  </button>
-                  <p className="form-note">
-                    By submitting this form, you agree to our privacy policy and terms of service.
-                  </p>
-                </form>
-              ) : (
-                <motion.div
-                  className="success-message"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <div className="success-icon">
-                    <CheckCircle size={60} />
-                  </div>
-                  <h3>Message Sent Successfully!</h3>
-                  <p>
-                    Thank you for reaching out to us. We've received your message and our team will get back to you
-                    within 24 hours with a detailed response.
-                  </p>
-                  <div className="success-actions">
-                    <button className="btn-primary" onClick={() => setIsSubmitted(false)}>
-                      Send Another Message
-                    </button>
-                    <button className="btn-secondary">
-                      <Calendar size={16} />
-                      Schedule a Call
-                    </button>
-                  </div>
-                </motion.div>
-              )}
+              <div className="section-badge">
+                <MapPin size={16} />
+                <span>Our Location</span>
+              </div>
+              <h2>Visit Our Office</h2>
+              <p>Come meet our team for in-person consultations and collaboration</p>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="process-section">
-        <div className="container">
-          <motion.div
-            className="section-header"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="section-badge">
-              <Briefcase size={16} />
-              <span>Our Process</span>
-            </div>
-            <h2>How We Work With You</h2>
-            <p>A streamlined process designed for successful project delivery</p>
-          </motion.div>
-          <div className="process-grid">
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={index}
-                className="process-card"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="process-number">{step.step}</div>
-                <div className="process-icon" style={{
-                  background: `linear-gradient(to right, ${step.color.from}, ${step.color.to})`,
-                }}>{step.icon}</div>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-                <div className="process-duration">{step.duration}</div>
-                {index < processSteps.length - 1 && (
-                  <div className="process-connector">
-                    <ArrowRight size={20} />
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Enhanced FAQ Section */}
-      <section className="faq-section">
-        <div className="container">
-          <motion.div
-            className="section-header"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="section-badge">
-              <MessageSquare size={16} />
-              <span>FAQ</span>
-            </div>
-            <h2>Frequently Asked Questions</h2>
-            <p>Quick answers to common questions about our services</p>
-          </motion.div>
-          <div className="faq-tabs">
-            {tabs.map((tab, index) => (
-              <button
-                key={index}
-                className={`faq-tab ${activeTab === index ? "active" : ""}`}
-                onClick={() => setActiveTab(index)}
-              >
-                {tab.icon}
-                {tab.label}
-              </button>
-            ))}
-          </div>
-          <div className="faq-content">
-            <div className="faq-grid">
-              {faqs
-                .filter((faq) => {
-                  if (activeTab === 0) return ["Timeline", "Support"].includes(faq.category)
-                  if (activeTab === 1) return ["Technology", "Collaboration"].includes(faq.category)
-                  if (activeTab === 2) return ["Pricing", "Security"].includes(faq.category)
-                  return true
-                })
-                .map((faq, index) => (
-                  <motion.div
-                    key={index}
-                    className="faq-item"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="faq-icon">
-                      <MessageCircle size={20} />
-                    </div>
-                    <div className="faq-content-text">
-                      <h3>{faq.question}</h3>
-                      <p>{faq.answer}</p>
-                      <span className="faq-category">{faq.category}</span>
-                    </div>
-                  </motion.div>
-                ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Enhanced Office Location Section */}
-      <section className="office-section">
-        <div className="container">
-          <motion.div
-            className="section-header"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="section-badge">
-              <MapPin size={16} />
-              <span>Our Location</span>
-            </div>
-            <h2>Visit Our Office</h2>
-            <p>Come meet our team for in-person consultations and collaboration</p>
-          </motion.div>
-          <motion.div
-            className="office-container"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="office-content">
-              <div className="office-info">
-                <div className="office-details">
-                  <h3>Vishwalatarati Headquarters</h3>
-                  <div className="office-address">
-                    <div className="address-item">
-                      <MapPin size={20} />
-                      <div>
-                        <span className="address-line">{officeInfo.address}</span>
-                        <span className="address-line">{officeInfo.city}</span>
-                        <span className="address-line">{officeInfo.country}</span>
+            <motion.div
+              className="office-container"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="office-content">
+                <div className="office-info">
+                  <div className="office-details">
+                    <h3>Vishwalatarati Headquarters</h3>
+                    <div className="office-address">
+                      <div className="address-item">
+                        <MapPin size={20} />
+                        <div>
+                          <span className="address-line">{officeInfo.address}</span>
+                          <span className="address-line">{officeInfo.city}</span>
+                          <span className="address-line">{officeInfo.country}</span>
+                        </div>
+                      </div>
+                      <div className="address-item">
+                        <Phone size={20} />
+                        <div>
+                          <span className="contact-detail">{officeInfo.phone}</span>
+                          <span className="contact-label">Main Office</span>
+                        </div>
+                      </div>
+                      <div className="address-item">
+                        <Mail size={20} />
+                        <div>
+                          <span className="contact-detail">{officeInfo.email}</span>
+                          <span className="contact-label">General Inquiries</span>
+                        </div>
+                      </div>
+                      <div className="address-item">
+                        <Clock size={20} />
+                        <div>
+                          <span className="contact-detail">{officeInfo.hours}</span>
+                          <span className="contact-detail">{officeInfo.weekend}</span>
+                        </div>
                       </div>
                     </div>
-                    <div className="address-item">
-                      <Phone size={20} />
-                      <div>
-                        <span className="contact-detail">{officeInfo.phone}</span>
-                        <span className="contact-label">Main Office</span>
-                      </div>
+                    <div className="office-actions">
+                      <button className="btn-primary">
+                        Get Directions <ArrowRight size={16} />
+                      </button>
+                      <button className="btn-secondary">
+                        <Calendar size={16} />
+                        Schedule Visit
+                      </button>
                     </div>
-                    <div className="address-item">
-                      <Mail size={20} />
-                      <div>
-                        <span className="contact-detail">{officeInfo.email}</span>
-                        <span className="contact-label">General Inquiries</span>
-                      </div>
-                    </div>
-                    <div className="address-item">
-                      <Clock size={20} />
-                      <div>
-                        <span className="contact-detail">{officeInfo.hours}</span>
-                        <span className="contact-detail">{officeInfo.weekend}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="office-actions">
-                    <button className="btn-primary">
-                      Get Directions <ArrowRight size={16} />
-                    </button>
-                    <button className="btn-secondary">
-                      <Calendar size={16} />
-                      Schedule Visit
-                    </button>
                   </div>
                 </div>
-              </div>
-              <div className="office-visual">
-                <div className="office-map">
-                  {/* <div className="map-placeholder">
+                <div className="office-visual">
+                  <div className="office-map">
+                    {/* <div className="map-placeholder">
                     <MapPin size={80} />
                     <h4>Interactive Map</h4>
                     <p>Click to view our location on Google Maps</p>
                   </div> */}
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6347.782620562595!2d75.89363580869136!3d17.615655501259877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc5d757fb36becd%3A0xf76bfc7549cf790d!2sSwami%20Vivekanand%20Nagar%2C%20Solapur%2C%20Maharashtra%20413008!5e1!3m2!1sen!2sin!4v1726164927831!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
-                    className="map-placeholder"
-                    style={{}}
-                    allowFullScreen=""
-                    loading="lazy"
-                    title="Google Map Location"
-                  />
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6347.782620562595!2d75.89363580869136!3d17.615655501259877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc5d757fb36becd%3A0xf76bfc7549cf790d!2sSwami%20Vivekanand%20Nagar%2C%20Solapur%2C%20Maharashtra%20413008!5e1!3m2!1sen!2sin!4v1726164927831!5m2!1sen!2sin"
+                      width="100%"
+                      height="100%"
+                      className="map-placeholder"
+                      style={{}}
+                      allowFullScreen=""
+                      loading="lazy"
+                      title="Google Map Location"
+                    />
+                  </div>
+                  <div className="office-features">
+                    <div className="office-feature">
+                      <HeadphonesIcon size={24} />
+                      <span>24/7 Support Available</span>
+                    </div>
+                    <div className="office-feature">
+                      <Users size={24} />
+                      <span>Meeting Rooms Available</span>
+                    </div>
+                    <div className="office-feature">
+                      <Shield size={24} />
+                      <span>Secure Environment</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="office-features">
-                  <div className="office-feature">
-                    <HeadphonesIcon size={24} />
-                    <span>24/7 Support Available</span>
-                  </div>
-                  <div className="office-feature">
-                    <Users size={24} />
-                    <span>Meeting Rooms Available</span>
-                  </div>
-                  <div className="office-feature">
-                    <Shield size={24} />
-                    <span>Secure Environment</span>
-                  </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Enhanced CTA Section */}
+        <section className="cta-section">
+          <div className="cta-background">
+            <div className="cta-pattern"></div>
+            <div className="cta-glow"></div>
+          </div>
+          <div className="container">
+            <motion.div
+              className="cta-content"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="cta-text">
+                <h2>Ready to Get Started?</h2>
+                <p>
+                  Let's turn your ideas into reality. Contact us today for a free consultation and discover how we can
+                  help transform your business.
+                </p>
+              </div>
+              <div className="cta-buttons">
+                <button className="btn-primary">
+                  <Phone size={20} />
+                  Schedule a Call
+                </button>
+                <button className="btn-secondary">
+                  <MessageSquare size={20} />
+                  Live Chat
+                </button>
+              </div>
+              <div className="cta-features">
+                <div className="cta-feature">
+                  <CheckCircle size={16} />
+                  <span>Free Consultation</span>
+                </div>
+                <div className="cta-feature">
+                  <CheckCircle size={16} />
+                  <span>No Obligation Quote</span>
+                </div>
+                <div className="cta-feature">
+                  <CheckCircle size={16} />
+                  <span>24/7 Support</span>
                 </div>
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+            </motion.div>
+          </div>
+        </section>
 
-      {/* Enhanced CTA Section */}
-      <section className="cta-section">
-        <div className="cta-background">
-          <div className="cta-pattern"></div>
-          <div className="cta-glow"></div>
-        </div>
-        <div className="container">
-          <motion.div
-            className="cta-content"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="cta-text">
-              <h2>Ready to Get Started?</h2>
-              <p>
-                Let's turn your ideas into reality. Contact us today for a free consultation and discover how we can
-                help transform your business.
-              </p>
-            </div>
-            <div className="cta-buttons">
-              <button className="btn-primary">
-                <Phone size={20} />
-                Schedule a Call
-              </button>
-              <button className="btn-secondary">
-                <MessageSquare size={20} />
-                Live Chat
-              </button>
-            </div>
-            <div className="cta-features">
-              <div className="cta-feature">
-                <CheckCircle size={16} />
-                <span>Free Consultation</span>
-              </div>
-              <div className="cta-feature">
-                <CheckCircle size={16} />
-                <span>No Obligation Quote</span>
-              </div>
-              <div className="cta-feature">
-                <CheckCircle size={16} />
-                <span>24/7 Support</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-background">
-          <div className="footer-pattern"></div>
-        </div>
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-main">
-              <div className="footer-brand">
-                <div className="footer-logo">
-                  {/* <div className="footer-logo-icon">
+        {/* Footer */}
+        <footer className="footer">
+          <div className="footer-background">
+            <div className="footer-pattern"></div>
+          </div>
+          <div className="container">
+            <div className="footer-content">
+              <div className="footer-main">
+                <div className="footer-brand">
+                  <div className="footer-logo">
+                    {/* <div className="footer-logo-icon">
                                         <Zap size={28} />
                                     </div> */}
-                  <h3>Vishwalatarati</h3>
-                </div>
-                <p>
-                  Empowering businesses through innovative digital solutions and cutting-edge technology. Your success
-                  is our mission.
-                </p>
-                <div className="footer-contact">
-                  <div className="contact-item">
-                    <Phone size={16} />
-                    <span>+91 7620131908</span>
+                    <h3>Vishwalatarati</h3>
                   </div>
-                  <div className="contact-item">
-                    <Mail size={16} />
-                    <span>vishwalarati@gmail.com</span>
+                  <p>
+                    Empowering businesses through innovative digital solutions and cutting-edge technology. Your success
+                    is our mission.
+                  </p>
+                  <div className="footer-contact">
+                    <div className="contact-item">
+                      <Phone size={16} />
+                      <span>+91 7620131908</span>
+                    </div>
+                    <div className="contact-item">
+                      <Mail size={16} />
+                      <span>vishwalarati@gmail.com</span>
+                    </div>
+                    <div className="contact-item">
+                      <MapPin size={16} />
+                      <span>783, Swami Vivekananda Nagar, Near Solapur Airport, Solapur-413002, Maharashtra.</span>
+                    </div>
                   </div>
-                  <div className="contact-item">
-                    <MapPin size={16} />
-                    <span>783, Swami Vivekananda Nagar, Near Solapur Airport, Solapur-413002, Maharashtra.</span>
-                  </div>
-                </div>
-                {/* <div className="social-links">
+                  {/* <div className="social-links">
                                     <a href="#" className="social-link">
                                         <span>LinkedIn</span>
                                     </a>
@@ -1021,62 +1044,63 @@ const ContactUs = () => {
                                         <span>Instagram</span>
                                     </a>
                                 </div> */}
+                </div>
+                <div className="footer-links">
+                  <div className="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                      <li>Software Development</li>
+                      <li>Mobile Applications</li>
+                      <li>Web Development</li>
+                      <li>Data Analytics</li>
+                      <li>Digital Strategy</li>
+                      <li>Industrial Training</li>
+                    </ul>
+                  </div>
+                  <div className="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                      <li>
+                        <Link to="/about">About Us</Link>
+                      </li>
+                      <li>
+                        <Link to="/contact">Contact</Link>
+                      </li>
+                      <li>Careers</li>
+                      <li>Blog</li>
+                      <li>Case Studies</li>
+                      <li>News</li>
+                    </ul>
+                  </div>
+                  <div className="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                      <li>Documentation</li>
+                      <li>API Reference</li>
+                      <li>Support Center</li>
+                      <li>Community</li>
+                      <li>Tutorials</li>
+                      <li>Webinars</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <div className="footer-links">
-                <div className="footer-section">
-                  <h4>Services</h4>
-                  <ul>
-                    <li>Software Development</li>
-                    <li>Mobile Applications</li>
-                    <li>Web Development</li>
-                    <li>Data Analytics</li>
-                    <li>Digital Strategy</li>
-                    <li>Industrial Training</li>
-                  </ul>
-                </div>
-                <div className="footer-section">
-                  <h4>Company</h4>
-                  <ul>
-                    <li>
-                      <Link to="/about">About Us</Link>
-                    </li>
-                    <li>
-                      <Link to="/contact">Contact</Link>
-                    </li>
-                    <li>Careers</li>
-                    <li>Blog</li>
-                    <li>Case Studies</li>
-                    <li>News</li>
-                  </ul>
-                </div>
-                <div className="footer-section">
-                  <h4>Resources</h4>
-                  <ul>
-                    <li>Documentation</li>
-                    <li>API Reference</li>
-                    <li>Support Center</li>
-                    <li>Community</li>
-                    <li>Tutorials</li>
-                    <li>Webinars</li>
-                  </ul>
-                </div>
+            </div>
+            <div className="footer-bottom">
+              <div className="footer-bottom-left">
+                <p>&copy; 2025 Vishwalatarati. All rights reserved.</p>
+              </div>
+              <div className="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Sitemap</a>
               </div>
             </div>
           </div>
-          <div className="footer-bottom">
-            <div className="footer-bottom-left">
-              <p>&copy; 2025 Vishwalatarati. All rights reserved.</p>
-            </div>
-            <div className="footer-bottom-links">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
-              <a href="#">Cookie Policy</a>
-              <a href="#">Sitemap</a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </>
   )
 }
 
