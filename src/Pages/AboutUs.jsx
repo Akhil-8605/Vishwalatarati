@@ -107,7 +107,7 @@ const AboutUs = () => {
 
     const team = [
         {
-            name: "Gauram Gham",
+            name: "Gaurav Gham",
             position: "Director & CEO",
             expertise: "Technology Strategy, Business Development, Digital Transformation",
             experience: "15+ years",
@@ -927,7 +927,7 @@ const AboutUs = () => {
                                 <Link to="/contact" className="btn-primary">
                                     Get In Touch <ArrowRight size={20} />
                                 </Link>
-                                <button className="btn-secondary">View Our Work</button>
+                                <button className="btn-secondary" onClick={() => { window.location.href = "/"; }}>View Our Work</button>
                             </div>
                         </motion.div>
                     </div>
@@ -952,6 +952,8 @@ const AboutUs = () => {
                                         Empowering businesses through innovative digital solutions and cutting-edge technology. Your success
                                         is our mission.
                                     </p>
+                                </div>
+                                <div className="footer-links">
                                     <div className="footer-contact">
                                         <div className="contact-item">
                                             <Phone size={16} />
@@ -959,65 +961,12 @@ const AboutUs = () => {
                                         </div>
                                         <div className="contact-item">
                                             <Mail size={16} />
-                                            <span>vishwalarati@gmail.com</span>
+                                            <span>contact@vishwalatarati.in</span>
                                         </div>
                                         <div className="contact-item">
                                             <MapPin size={16} />
                                             <span>783, Swami Vivekananda Nagar, Near Solapur Airport, Solapur-413002, Maharashtra.</span>
                                         </div>
-                                    </div>
-                                    {/* <div className="social-links">
-                                    <a href="#" className="social-link">
-                                        <span>LinkedIn</span>
-                                    </a>
-                                    <a href="#" className="social-link">
-                                        <span>Twitter</span>
-                                    </a>
-                                    <a href="#" className="social-link">
-                                        <span>Facebook</span>
-                                    </a>
-                                    <a href="#" className="social-link">
-                                        <span>Instagram</span>
-                                    </a>
-                                </div> */}
-                                </div>
-                                <div className="footer-links">
-                                    <div className="footer-section">
-                                        <h4>Services</h4>
-                                        <ul>
-                                            <li>Software Development</li>
-                                            <li>Mobile Applications</li>
-                                            <li>Web Development</li>
-                                            <li>Data Analytics</li>
-                                            <li>Digital Strategy</li>
-                                            <li>Industrial Training</li>
-                                        </ul>
-                                    </div>
-                                    <div className="footer-section">
-                                        <h4>Company</h4>
-                                        <ul>
-                                            <li>
-                                                <Link to="/about">About Us</Link>
-                                            </li>
-                                            <li>
-                                                <Link to="/contact">Contact</Link>
-                                            </li>
-                                            <li>Careers</li>
-                                            <li>Blog</li>
-                                            <li>Case Studies</li>
-                                            <li>News</li>
-                                        </ul>
-                                    </div>
-                                    <div className="footer-section">
-                                        <h4>Resources</h4>
-                                        <ul>
-                                            <li>Documentation</li>
-                                            <li>API Reference</li>
-                                            <li>Support Center</li>
-                                            <li>Community</li>
-                                            <li>Tutorials</li>
-                                            <li>Webinars</li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -1025,12 +974,6 @@ const AboutUs = () => {
                         <div className="footer-bottom">
                             <div className="footer-bottom-left">
                                 <p>&copy; 2025 Vishwalatarati. All rights reserved.</p>
-                            </div>
-                            <div className="footer-bottom-links">
-                                <a href="#">Privacy Policy</a>
-                                <a href="#">Terms of Service</a>
-                                <a href="#">Cookie Policy</a>
-                                <a href="#">Sitemap</a>
                             </div>
                         </div>
                     </div>

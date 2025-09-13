@@ -32,6 +32,7 @@ import {
   Sparkles,
 } from "lucide-react"
 import "./ContactUs.css"
+import { i } from "framer-motion/client";
 
 const ContactUs = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -70,7 +71,33 @@ const ContactUs = () => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
+    const subject = encodeURIComponent(`New Contact Form Submission from ${formData.name}`)
+    const body = encodeURIComponent(`
+Hello,
+
+You have received a new contact form submission with the following details:
+
+Full Name: ${formData.name}
+Email Address: ${formData.email}
+Phone Number: ${formData.phone}
+Company: ${formData.company}
+Service Requested: ${formData.service}
+Estimated Budget: ${formData.budget}
+Project Timeline: ${formData.timeline}
+
+Message:
+${formData.message}
+
+Best regards,  
+${formData.name}
+`);
+
+    const mailtoUrl = `mailto:contact@vishwalatarati.in?subject=${subject}&body=${body}`
+
+    // Open Gmail/email client
+    window.open(mailtoUrl, "_blank")
+
+    // Show success state
     setTimeout(() => {
       setIsSubmitting(false)
       setIsSubmitted(true)
@@ -84,7 +111,7 @@ const ContactUs = () => {
         timeline: "",
         message: "",
       })
-    }, 2000)
+    }, 1000)
   }
 
   const contactMethods = [
@@ -92,8 +119,7 @@ const ContactUs = () => {
       icon: <Mail size={32} />,
       title: "Email Us",
       subtitle: "Send us a message",
-      primary: "vishwalarati@gmail.com",
-      secondary: "vishwalarati@gmail.com",
+      primary: "contact@vishwalatarati.in",
       color: { from: "#3b82f6", to: "#2563eb" }, // blue-500 to blue-600
       bgColor: "#eff6ff", // blue-50
       description: "Get a response within 24 hours",
@@ -104,7 +130,6 @@ const ContactUs = () => {
       title: "Call Us",
       subtitle: "Speak with our experts",
       primary: "+91 7620131908",
-      secondary: "+91 7620131908",
       color: { from: "#10b981", to: "#059669" }, // emerald-500 to emerald-600
       bgColor: "#ecfdf5", // emerald-50
       description: "Available Mon-Fri, 9AM-6PM",
@@ -126,14 +151,12 @@ const ContactUs = () => {
       title: "Live Chat",
       subtitle: "Instant support",
       primary: "Chat with our team",
-      secondary: "Real-time assistance",
       color: { from: "#f97316", to: "#ea580c" }, // orange-500 to orange-600
       bgColor: "#fff7ed", // orange-50
       description: "Available during business hours",
       action: "Start Chat",
     },
-  ];
-
+  ]
 
   const services = [
     "Software Development",
@@ -148,7 +171,7 @@ const ContactUs = () => {
 
   const budgetRanges = [
     "Under ₹10,000",
-    "₹10,000 - $25,000",
+    "₹10,000 - ₹25,000",
     "₹25,000 - ₹50,000",
     "₹50,000 - ₹100,000",
     "Above ₹100,000",
@@ -260,8 +283,7 @@ const ContactUs = () => {
       color: { from: "#f97316", to: "#ea580c" }, // orange-500 to orange-600
       duration: "Ongoing",
     },
-  ];
-
+  ]
 
   const officeInfo = {
     address: "783, Swami Vivekananda Nagar, Near Solapur Airport, ",
@@ -269,8 +291,8 @@ const ContactUs = () => {
     country: "India",
     hours: "Mon - Fri: 9:00 AM - 6:00 PM",
     weekend: "Sat: 10:00 AM - 4:00 PM",
-    phone: "+91 98765 43210",
-    email: "vishwalarati@gmail.com",
+    phone: "+91 82628 57095",
+    email: "contact@vishwalatarati.in",
   }
 
   const tabs = [
@@ -278,6 +300,20 @@ const ContactUs = () => {
     { label: "Technical", icon: <Code size={18} /> },
     { label: "Business", icon: <Briefcase size={18} /> },
   ]
+
+  const handleMethodClick = (action) => {
+    switch (action) {
+      case "Send Email":
+        window.location.href = "mailto:contact@vishwalatarati.in";
+        break;
+      case "Call Us":
+        window.location.href = "tel:8262857095";
+        break;
+      case "Start Chat":
+        window.location.href = "https://wa.me/+918262857095";
+        break;
+    }
+  }
 
   return (
     <>
@@ -387,11 +423,21 @@ const ContactUs = () => {
                 </div>
               </div>
               <div className="hero-cta">
-                <button className="btn-primary">
+                <button className="btn-primary" onClick={() => {
+                  const element = document.getElementById("#contact-form");
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>
                   <span>Start Your Project</span>
                   <ArrowRight size={20} />
                 </button>
-                <button className="btn-secondary">
+                <button className="btn-secondary" onClick={() => {
+                  const element = document.getElementById("#contact-form");
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}>
                   <Calendar size={20} />
                   <span>Schedule Consultation</span>
                 </button>
@@ -434,10 +480,9 @@ const ContactUs = () => {
                     <p className="method-subtitle">{method.subtitle}</p>
                     <div className="method-details">
                       <span className="primary-detail">{method.primary}</span>
-                      <span className="secondary-detail">{method.secondary}</span>
                     </div>
                     <p className="method-description">{method.description}</p>
-                    <button className="method-action">
+                    <button className="method-action" onClick={() => { handleMethodClick(method.action) }}>
                       {method.action}
                       <ArrowRight size={16} />
                     </button>
@@ -557,6 +602,7 @@ const ContactUs = () => {
               </motion.div>
               <motion.div
                 className="contact-form-container"
+                id="#contact-form"
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
@@ -721,7 +767,7 @@ const ContactUs = () => {
                       <button className="btn-primary" onClick={() => setIsSubmitted(false)}>
                         Send Another Message
                       </button>
-                      <button className="btn-secondary">
+                      <button className="btn-secondary" onClick={() => window.location.href = "tel:8262857095"}>
                         <Calendar size={16} />
                         Schedule a Call
                       </button>
@@ -900,10 +946,10 @@ const ContactUs = () => {
                       </div>
                     </div>
                     <div className="office-actions">
-                      <button className="btn-primary">
+                      <button className="btn-primary" onClick={() => window.open("https://maps.app.goo.gl/HppqnUGVd2CsznWi7", "_blank")}>
                         Get Directions <ArrowRight size={16} />
                       </button>
-                      <button className="btn-secondary">
+                      <button className="btn-secondary" onClick={() => window.location.href = "https://maps.app.goo.gl/HppqnUGVd2CsznWi7"}>
                         <Calendar size={16} />
                         Schedule Visit
                       </button>
@@ -918,15 +964,13 @@ const ContactUs = () => {
                     <p>Click to view our location on Google Maps</p>
                   </div> */}
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6347.782620562595!2d75.89363580869136!3d17.615655501259877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc5d757fb36becd%3A0xf76bfc7549cf790d!2sSwami%20Vivekanand%20Nagar%2C%20Solapur%2C%20Maharashtra%20413008!5e1!3m2!1sen!2sin!4v1726164927831!5m2!1sen!2sin"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.42902747797!2d75.92932067494048!3d17.622791983305035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc5db53c3f255af%3A0x6ffa8fd8b3b5a3e4!2sVishwalatarati%20Digital%20solutions%20private%20limited!5e1!3m2!1sen!2sin!4v1757773163919!5m2!1sen!2sin"
                       width="100%"
                       height="100%"
-                      className="map-placeholder"
-                      style={{}}
-                      allowFullScreen=""
+                      allowfullscreen=""
                       loading="lazy"
-                      title="Google Map Location"
-                    />
+                      referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                   </div>
                   <div className="office-features">
                     <div className="office-feature">
@@ -970,11 +1014,11 @@ const ContactUs = () => {
                 </p>
               </div>
               <div className="cta-buttons">
-                <button className="btn-primary">
+                <button className="btn-primary" onClick={() => handleMethodClick("Call Us")}>
                   <Phone size={20} />
                   Schedule a Call
                 </button>
-                <button className="btn-secondary">
+                <button className="btn-secondary" onClick={() => handleMethodClick("Start Chat")}>
                   <MessageSquare size={20} />
                   Live Chat
                 </button>
@@ -1016,6 +1060,8 @@ const ContactUs = () => {
                     Empowering businesses through innovative digital solutions and cutting-edge technology. Your success
                     is our mission.
                   </p>
+                </div>
+                <div className="footer-links">
                   <div className="footer-contact">
                     <div className="contact-item">
                       <Phone size={16} />
@@ -1023,65 +1069,12 @@ const ContactUs = () => {
                     </div>
                     <div className="contact-item">
                       <Mail size={16} />
-                      <span>vishwalarati@gmail.com</span>
+                      <span>contact@vishwalatarati.in</span>
                     </div>
                     <div className="contact-item">
                       <MapPin size={16} />
                       <span>783, Swami Vivekananda Nagar, Near Solapur Airport, Solapur-413002, Maharashtra.</span>
                     </div>
-                  </div>
-                  {/* <div className="social-links">
-                                    <a href="#" className="social-link">
-                                        <span>LinkedIn</span>
-                                    </a>
-                                    <a href="#" className="social-link">
-                                        <span>Twitter</span>
-                                    </a>
-                                    <a href="#" className="social-link">
-                                        <span>Facebook</span>
-                                    </a>
-                                    <a href="#" className="social-link">
-                                        <span>Instagram</span>
-                                    </a>
-                                </div> */}
-                </div>
-                <div className="footer-links">
-                  <div className="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                      <li>Software Development</li>
-                      <li>Mobile Applications</li>
-                      <li>Web Development</li>
-                      <li>Data Analytics</li>
-                      <li>Digital Strategy</li>
-                      <li>Industrial Training</li>
-                    </ul>
-                  </div>
-                  <div className="footer-section">
-                    <h4>Company</h4>
-                    <ul>
-                      <li>
-                        <Link to="/about">About Us</Link>
-                      </li>
-                      <li>
-                        <Link to="/contact">Contact</Link>
-                      </li>
-                      <li>Careers</li>
-                      <li>Blog</li>
-                      <li>Case Studies</li>
-                      <li>News</li>
-                    </ul>
-                  </div>
-                  <div className="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                      <li>Documentation</li>
-                      <li>API Reference</li>
-                      <li>Support Center</li>
-                      <li>Community</li>
-                      <li>Tutorials</li>
-                      <li>Webinars</li>
-                    </ul>
                   </div>
                 </div>
               </div>
@@ -1089,12 +1082,6 @@ const ContactUs = () => {
             <div className="footer-bottom">
               <div className="footer-bottom-left">
                 <p>&copy; 2025 Vishwalatarati. All rights reserved.</p>
-              </div>
-              <div className="footer-bottom-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Cookie Policy</a>
-                <a href="#">Sitemap</a>
               </div>
             </div>
           </div>

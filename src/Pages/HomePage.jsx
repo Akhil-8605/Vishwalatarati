@@ -640,7 +640,7 @@ const Homepage = () => {
                         >
                             <div className="director-image">
                                 <motion.div className="director-photo" whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
-                                    <img src={directorImg} alt="Gauram Gham - Director" />
+                                    <img src={directorImg} alt="Gaurav Gham - Director" />
                                     <div className="director-overlay">
                                         {/* <div className="social-links">
                                         <a href="#" className="social-link">
@@ -658,17 +658,17 @@ const Homepage = () => {
                                 </div>
                             </div>
                             <div className="director-info">
-                                <h3>Gauram Gham</h3>
+                                <h3>Gaurav Gham</h3>
                                 <p className="director-title">Director & Chief Technology Officer</p>
                                 <div className="director-bio">
                                     <p>
-                                        With over 5 years of experience in technology and business strategy, Gauram leads Vishwalatarati with
+                                        With over 5 years of experience in technology and business strategy, Gaurav leads Vishwalatarati with
                                         a vision to transform how businesses leverage technology for growth. His expertise spans across
                                         multiple domains including software architecture, data science, and digital transformation.
                                     </p>
                                     <p>
                                         Under his leadership, the company has successfully delivered 500+ projects and maintained a 98% client
-                                        satisfaction rate. Gauram is passionate about innovation and believes in empowering teams to create
+                                        satisfaction rate. Gaurav is passionate about innovation and believes in empowering teams to create
                                         solutions that make a real difference.
                                     </p>
                                 </div>
@@ -897,11 +897,23 @@ const Homepage = () => {
                                 </p>
                             </div>
                             <div className="cta-buttons">
-                                <Link to="/contact" className="btn-primary">
+                                <button onClick={() => {
+                                    window.location.href = "/contact";
+                                    const element = document.getElementById("#contact-form");
+                                    if (element) {
+                                        element.scrollIntoView({ behavior: "smooth" });
+                                    }
+                                }} className="btn-primary">
                                     <span>Start Your Project</span>
                                     <ArrowRight size={20} />
-                                </Link>
-                                <button className="btn-secondary">
+                                </button>
+                                <button onClick={() => {
+                                    window.location.href = "/contact";
+                                    const element = document.getElementById("#contact-form");
+                                    if (element) {
+                                        element.scrollIntoView({ behavior: "smooth" });
+                                    }
+                                }} className="btn-secondary" style={{ textDecoration: 'none' }}>
                                     <Calendar size={20} />
                                     <span>Schedule Consultation</span>
                                 </button>
@@ -943,6 +955,8 @@ const Homepage = () => {
                                         Empowering businesses through innovative digital solutions and cutting-edge technology. Your success
                                         is our mission.
                                     </p>
+                                </div>
+                                <div className="footer-links">
                                     <div className="footer-contact">
                                         <div className="contact-item">
                                             <Phone size={16} />
@@ -950,65 +964,12 @@ const Homepage = () => {
                                         </div>
                                         <div className="contact-item">
                                             <Mail size={16} />
-                                            <span>vishwalarati@gmail.com</span>
+                                            <span>contact@vishwalatarati.in</span>
                                         </div>
                                         <div className="contact-item">
                                             <MapPin size={16} />
                                             <span>783, Swami Vivekananda Nagar, Near Solapur Airport, Solapur-413002, Maharashtra.</span>
                                         </div>
-                                    </div>
-                                    {/* <div className="social-links">
-                                    <a href="#" className="social-link">
-                                        <span>LinkedIn</span>
-                                    </a>
-                                    <a href="#" className="social-link">
-                                        <span>Twitter</span>
-                                    </a>
-                                    <a href="#" className="social-link">
-                                        <span>Facebook</span>
-                                    </a>
-                                    <a href="#" className="social-link">
-                                        <span>Instagram</span>
-                                    </a>
-                                </div> */}
-                                </div>
-                                <div className="footer-links">
-                                    <div className="footer-section">
-                                        <h4>Services</h4>
-                                        <ul>
-                                            <li>Software Development</li>
-                                            <li>Mobile Applications</li>
-                                            <li>Web Development</li>
-                                            <li>Data Analytics</li>
-                                            <li>Digital Strategy</li>
-                                            <li>Industrial Training</li>
-                                        </ul>
-                                    </div>
-                                    <div className="footer-section">
-                                        <h4>Company</h4>
-                                        <ul>
-                                            <li>
-                                                <Link to="/about">About Us</Link>
-                                            </li>
-                                            <li>
-                                                <Link to="/contact">Contact</Link>
-                                            </li>
-                                            <li>Careers</li>
-                                            <li>Blog</li>
-                                            <li>Case Studies</li>
-                                            <li>News</li>
-                                        </ul>
-                                    </div>
-                                    <div className="footer-section">
-                                        <h4>Resources</h4>
-                                        <ul>
-                                            <li>Documentation</li>
-                                            <li>API Reference</li>
-                                            <li>Support Center</li>
-                                            <li>Community</li>
-                                            <li>Tutorials</li>
-                                            <li>Webinars</li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -1016,12 +977,6 @@ const Homepage = () => {
                         <div className="footer-bottom">
                             <div className="footer-bottom-left">
                                 <p>&copy; 2025 Vishwalatarati. All rights reserved.</p>
-                            </div>
-                            <div className="footer-bottom-links">
-                                <a href="#">Privacy Policy</a>
-                                <a href="#">Terms of Service</a>
-                                <a href="#">Cookie Policy</a>
-                                <a href="#">Sitemap</a>
                             </div>
                         </div>
                     </div>
@@ -1088,12 +1043,6 @@ const Homepage = () => {
                                         </ul>
                                     </div>
                                 </div>
-                                {/* <div className="modal-footer">
-                                <button className="btn-primary">
-                                    Get Started <ArrowRight size={16} />
-                                </button>
-                                <button className="btn-secondary">Request Quote</button>
-                            </div> */}
                             </motion.div>
                         </motion.div>
                     )}
